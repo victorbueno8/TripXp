@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">TripXp</string>
+    <string name="tripxp">TripXp</string>
+    <string name="email">email</string>
+    <string name="senha">senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="nome">nome</string>
+    <string name="confirmar_senha">confirmar senha</string>
+    <string name="continuar">Continuar</string>
+    <string name="inscreva_se">Inscreva-se</string>
+    <string name="ou">ou</string>
+    <string name="organiza_excurs_es_clique_aqui">Organiza Excursões? Clique aqui</string>
 </resources>
