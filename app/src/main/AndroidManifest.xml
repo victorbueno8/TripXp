@@ -10,11 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TripXp">
         <activity
+            android:name=".presentation.SearchTripsActivity"
+            android:label="Buscar Excursões"/>
+        <activity
+            android:name=".presentation.MyTripsActivity"
+            android:label="Minhas Excursões" />
+        <activity
             android:name=".presentation.RegistrationActivity"
             android:label="Registrar-se" />
         <activity
             android:name=".presentation.LoginActivity"
-            android:label="Login"/>
+            android:label="Login" />
         <activity android:name=".presentation.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
