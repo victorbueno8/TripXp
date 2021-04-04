@@ -11,4 +11,7 @@
     <string name="ou">ou</string>
     <string name="organiza_excurs_es_clique_aqui">Organiza Excursões? Clique aqui</string>
     <string name="buscar_excursoes_fab">Buscar Excursões</string>
+    <string name="title_activity_event">EventActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 </resources>

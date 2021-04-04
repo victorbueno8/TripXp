@@ -9,9 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TripXp">
+        <activity android:name=".presentation.UserProfileActivity"></activity>
+        <activity android:name=".presentation.OrganizerProfileActivity" />
+        <activity
+            android:name=".presentation.EventActivity"
+            android:label="@string/title_activity_event"
+            android:theme="@style/Theme.TripXp.NoActionBar" />
         <activity
             android:name=".presentation.SearchTripsActivity"
-            android:label="Buscar Excursões"/>
+            android:label="Buscar Excursões" />
         <activity
             android:name=".presentation.MyTripsActivity"
             android:label="Minhas Excursões" />
