@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TripXp">
-        <activity android:name=".presentation.UserProfileActivity"></activity>
+        <activity android:name=".presentation.UserProfileActivity"/>
         <activity android:name=".presentation.OrganizerProfileActivity" />
         <activity
             android:name=".presentation.EventActivity"
