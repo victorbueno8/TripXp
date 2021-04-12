@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TripXp">
-        <activity android:name=".presentation.UserProfileActivity"/>
+        <activity
+            android:name=".presentation.PaymentMethodActivity"
+            android:label="Método de Pagamento" />
+        <activity
+            android:name=".presentation.TermsActivity"
+            android:label="Termos e Regras da Excursão" />
+        <activity android:name=".presentation.UserProfileActivity" />
         <activity android:name=".presentation.OrganizerProfileActivity" />
         <activity
             android:name=".presentation.EventActivity"
