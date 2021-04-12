@@ -9,11 +9,42 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TripXp">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".presentation.PaymentMethodActivity"
+            android:label="Método de Pagamento" />
+        <activity
+            android:name=".presentation.TermsActivity"
+            android:label="Termos e Regras da Excursão" />
+        <activity android:name=".presentation.UserProfileActivity" />
+        <activity android:name=".presentation.OrganizerProfileActivity" />
+        <activity
+            android:name=".presentation.EventActivity"
+            android:label="@string/title_activity_event"
+            android:theme="@style/Theme.TripXp.NoActionBar" />
+        <activity
+            android:name=".presentation.SearchTripsActivity"
+            android:label="Buscar Excursões" />
+        <activity
+            android:name=".presentation.MyTripsActivity"
+            android:label="Minhas Excursões" />
+        <activity
+            android:name=".presentation.RegistrationActivity"
+            android:label="Registrar-se" />
+        <activity
+            android:name=".presentation.LoginActivity"
+            android:label="Login" />
+        <activity android:name=".presentation.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="Main Menu">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
     </application>
