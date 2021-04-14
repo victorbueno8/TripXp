@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TripXp">
         <activity
+            android:name=".presentation.organizer.EditEventActivity"
+            android:label="Criação da Excurção" />
+        <activity
             android:name=".presentation.PaymentMethodActivity"
             android:label="Método de Pagamento" />
         <activity
