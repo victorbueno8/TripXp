@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "704960492615",
+    "project_id": "tripxp-2b5b2",
+    "storage_bucket": "tripxp-2b5b2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:704960492615:android:3b83c3606690c00b56ed62",
+        "android_client_info": {
+          "package_name": "br.edu.ifsp.scl.sdm.tripxp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "704960492615-f04va0adpiqs5fq5mi3qgvuggenrfvdn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7pACroThvSWcc_u2OHHO6mNBsr6Ch0rY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "704960492615-f04va0adpiqs5fq5mi3qgvuggenrfvdn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
