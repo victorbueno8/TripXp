@@ -37,6 +37,16 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        val user = auth.currentUser
+
+        if (user != null) {
+            startActivity(Intent(this, MyTripsActivity::class.java))
+        }
+
+    }
+
     private fun signInUser(email: String, password: String) {
         auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener (this) { task ->
