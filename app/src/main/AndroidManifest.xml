@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.edu.ifsp.scl.sdm.tripxp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,6 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TripXp">
+        <activity
+            android:name=".presentation.EditOrganizerProfileActivity"
+            android:label="Minha Empresa de Excurção" />
+        <activity
+            android:name=".presentation.EditProfileActivity"
+            android:label="Meu Perfil" />
+        <activity
+            android:name=".presentation.MyTripsActivity"
+            android:label="@string/title_activity_my_trips"
+            android:theme="@style/Theme.TripXp.NoActionBar" />
         <activity
             android:name=".presentation.PaymentMethodActivity"
             android:label="Método de Pagamento" />
@@ -24,9 +36,6 @@
         <activity
             android:name=".presentation.SearchTripsActivity"
             android:label="Buscar Excursões" />
-        <activity
-            android:name=".presentation.MyTripsActivity"
-            android:label="Minhas Excursões" />
         <activity
             android:name=".presentation.RegistrationActivity"
             android:label="Registrar-se" />

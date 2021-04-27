@@ -10,12 +10,12 @@
         android:id="@+id/ouTv2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:text="@string/ou"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerOrganizadorBt"
+        app:layout_constraintTop_toBottomOf="@+id/continuarBt"
         tools:text="ou" />
 
     <EditText
@@ -92,13 +92,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:text="@string/continuar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ouTv2" />
+        app:layout_constraintTop_toBottomOf="@+id/registerConfirmSenhaEt" />
 
     <Button
         android:id="@+id/registerOrganizadorBt"
@@ -106,7 +106,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:text="@string/organiza_excurs_es_clique_aqui"
@@ -115,7 +115,8 @@
         android:textStyle="bold"
         app:backgroundTint="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerConfirmSenhaEt" />
+        app:layout_constraintTop_toBottomOf="@+id/ouTv2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
