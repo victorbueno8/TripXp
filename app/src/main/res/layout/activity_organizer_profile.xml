@@ -25,6 +25,7 @@
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/companyImageIv"
+        app:srcCompat="@mipmap/ic_avatar_placeholder"
         tools:src="@tools:sample/avatars" />
 
     <TextView
@@ -120,4 +121,27 @@
         app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toStartOf="@+id/ratingBar"
         app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+
+    <TextView
+        android:id="@+id/organizerPhoneNumberTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="2dp"
+        android:text="(xx) xxxxx-xxxx"
+        app:layout_constraintBottom_toBottomOf="@+id/phoneLb"
+        app:layout_constraintStart_toEndOf="@+id/phoneLb"
+        app:layout_constraintTop_toTopOf="@+id/phoneLb" />
+
+    <TextView
+        android:id="@+id/organizerEmailAddressTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="placeholder@email.com"
+        app:layout_constraintBottom_toBottomOf="@+id/emailLb"
+        app:layout_constraintStart_toEndOf="@+id/emailLb"
+        app:layout_constraintTop_toTopOf="@+id/emailLb" />
 </androidx.constraintlayout.widget.ConstraintLayout>
