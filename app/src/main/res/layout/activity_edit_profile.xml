@@ -31,7 +31,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Data de Nascimento"
-        android:inputType="textPersonName"
+        android:inputType="date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fullNameEt" />
 
@@ -98,6 +98,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_avatar_placeholder"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import br.edu.ifsp.scl.sdm.tripxp.R
+import br.edu.ifsp.scl.sdm.tripxp.entities.Company
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
@@ -24,15 +25,16 @@ class EditOrganizerProfileActivity : AppCompatActivity() {
         companyConfirmBt.setOnClickListener {
             if (excursionCompanyNameET.text.toString().isNotEmpty() && permissionDocumentEt.text.toString().isNotEmpty() &&
                     companyCityEt.text.toString().isNotEmpty() && tripsTypesEt.text.toString().isNotEmpty()) {
-                val companyData: HashMap<String, Any> = HashMap()
-                companyData.put("userID", auth.currentUser.uid)
-                companyData.put("name", excursionCompanyNameET.text.toString())
-                companyData.put("document", permissionDocumentEt.text.toString())
-                companyData.put("city", companyCityEt.text.toString())
-                companyData.put("tripServices", tripsTypesEt.text.toString())
-                companyData.put("description", companyDescriptionEt.text.toString())
+                val company: Company = Company(
+                        userID = auth.currentUser.uid,
+                        name = excursionCompanyNameET.text.toString(),
+                        document = permissionDocumentEt.text.toString(),
+                        city = companyCityEt.text.toString(),
+                        tripServices = tripsTypesEt.text.toString(),
+                        description = companyDescriptionEt.text.toString()
+                )
                 db.collection("companies")
-                    .add(companyData)
+                    .add(company)
                     .addOnSuccessListener{
                         Toast.makeText(
                             this,

@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.widget.Toolbar
 import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.presentation.ui.main.SectionsPagerAdapter
@@ -54,6 +55,7 @@ class MyTripsActivity : AppCompatActivity() {
             auth.signOut()
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+            finish()
             true
         }
         else -> {
