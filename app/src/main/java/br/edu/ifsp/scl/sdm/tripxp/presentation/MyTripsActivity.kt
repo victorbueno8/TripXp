@@ -14,16 +14,23 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.widget.Toolbar
 import br.edu.ifsp.scl.sdm.tripxp.R
+import br.edu.ifsp.scl.sdm.tripxp.entities.Company
+import br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.EditEventActivity
 import br.edu.ifsp.scl.sdm.tripxp.presentation.ui.main.SectionsPagerAdapter
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class MyTripsActivity : AppCompatActivity() {
-    private lateinit var auth: FirebaseAuth;
+    private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_trips)
+
         auth = FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()
+
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
@@ -34,8 +41,19 @@ class MyTripsActivity : AppCompatActivity() {
         val fab: FloatingActionButton = findViewById(R.id.fab)
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show()
+            val intent = Intent(this, EditEventActivity::class.java)
+            db.collection("companies")
+                    .whereEqualTo("userID", auth.currentUser.uid)
+                    .get()
+                    .addOnSuccessListener { documents ->
+                        val companyID = documents.first().id
+                        intent.putExtra("company", companyID)
+                    }
+                    .addOnFailureListener { exception ->
+                        Snackbar.make(view, "Não foi encontrado sua empresa", Snackbar.LENGTH_LONG).setAction("Action", null).show()
+                    }
+            startActivity(intent)
         }
     }
 

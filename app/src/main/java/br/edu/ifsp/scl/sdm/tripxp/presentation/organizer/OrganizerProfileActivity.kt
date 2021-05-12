@@ -1,4 +1,4 @@
-package br.edu.ifsp.scl.sdm.tripxp.presentation
+package br.edu.ifsp.scl.sdm.tripxp.presentation.organizer
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,7 +9,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_organizer_profile.*
-import kotlinx.android.synthetic.main.activity_user_profile.*
 
 class OrganizerProfileActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth

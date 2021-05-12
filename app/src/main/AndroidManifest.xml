@@ -12,14 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TripXp">
         <activity
-            android:name=".presentation.EditOrganizerProfileActivity"
+            android:name=".presentation.organizer.EditOrganizerProfileActivity"
             android:label="Minha Empresa de Excurção" />
         <activity
             android:name=".presentation.EditProfileActivity"
             android:label="Meu Perfil" />
         <activity
             android:name=".presentation.MyTripsActivity"
-            android:label="@string/title_activity_my_trips"
+            android:label="Minhas Excursões"
             android:theme="@style/Theme.TripXp.NoActionBar" />
         <activity
             android:name=".presentation.organizer.EditEventActivity"
@@ -31,7 +31,7 @@
             android:name=".presentation.TermsActivity"
             android:label="Termos e Regras da Excursão" />
         <activity android:name=".presentation.UserProfileActivity" />
-        <activity android:name=".presentation.OrganizerProfileActivity" />
+        <activity android:name=".presentation.organizer.OrganizerProfileActivity" />
         <activity
             android:name=".presentation.EventActivity"
             android:label="@string/title_activity_event"
