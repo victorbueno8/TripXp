@@ -12,6 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TripXp">
         <activity
+            android:name=".presentation.organizer.ManageEventsActivity"
+            android:label="@string/title_activity_manage_events"
+            android:theme="@style/Theme.TripXp.NoActionBar"/>
+        <activity
             android:name=".presentation.organizer.EditOrganizerProfileActivity"
             android:label="Minha Empresa de Excurção" />
         <activity

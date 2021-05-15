@@ -15,4 +15,10 @@
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
     <string name="title_activity_my_trips">MyTripsActivity</string>
+    <string name="title_activity_manage_events">ManageEventsActivity</string>
+    <string name="tab_new_trips">Novos</string>
+    <string name="tab_coming_trips">Próximos</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="meu_perfil">Meu Perfil</string>
+    <string name="sair">Sair</string>
 </resources>

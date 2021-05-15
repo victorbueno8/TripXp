@@ -7,17 +7,22 @@ import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import br.edu.ifsp.scl.sdm.tripxp.R
+import br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.ManageEventsActivity
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
-    private lateinit var auth: FirebaseAuth;
+    private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
         auth = FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()
 
         val loginBt: Button = findViewById(R.id.loginBt)
         loginBt.setOnClickListener { view ->
@@ -39,22 +44,36 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        val user = auth.currentUser
-
-        if (user != null) {
-            startActivity(Intent(this, MyTripsActivity::class.java))
-        }
-
+        redirectUser()
     }
 
     private fun signInUser(email: String, password: String) {
         auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener (this) { task ->
                     if (task.isSuccessful){
-                        startActivity(Intent(this, MyTripsActivity::class.java))
+                        redirectUser()
                     } else {
                         Toast.makeText(this, "Erro:" + task.exception, Toast.LENGTH_LONG ).show()
                     }
                 }
+    }
+
+    private fun redirectUser() {
+        val user = auth.currentUser
+        if (user != null) {
+            db.collection("users").document(user.uid)
+                .get().addOnSuccessListener { document ->
+                    val userType = document.get("userType")
+                    if (userType == "organizer") {
+                        startActivity(Intent(this, ManageEventsActivity::class.java))
+                    } else {
+                        startActivity(Intent(this, MyTripsActivity::class.java))
+                    }
+
+                } .addOnFailureListener { e ->
+                    // Redirect to registration
+                    Toast.makeText(this, "Perfil de usuario não encontrado", Toast.LENGTH_LONG ).show()
+                }
+        }
     }
 }
