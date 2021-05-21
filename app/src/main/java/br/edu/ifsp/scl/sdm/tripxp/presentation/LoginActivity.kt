@@ -3,12 +3,10 @@ package br.edu.ifsp.scl.sdm.tripxp.presentation
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import br.edu.ifsp.scl.sdm.tripxp.R
-import br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.ManageEventsActivity
-import com.google.android.material.snackbar.Snackbar
+import br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.events.ManageEventsActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_login.*

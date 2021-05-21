@@ -1,4 +1,4 @@
-package br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.ui.main
+package br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.events
 
 import android.content.Context
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.presentation.MyTripsFragment
+import br.edu.ifsp.scl.sdm.tripxp.use_cases.OrganizerTripList
 
 private val TAB_TITLES = arrayOf(
     R.string.tab_new_trips,
@@ -20,10 +21,10 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
     FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment {
-        // getItem is called to instantiate the fragment for the given page.
-        // Return a PlaceholderFragment (defined as a static inner class below).
-        // return PlaceholderFragment.newInstance(position + 1)
-        return MyTripsFragment()
+        return when (position) {
+            0 -> MyTripsFragment.newInstance(position + 1)
+            else -> MyTripsFragment.newInstance(position + 1)
+        }
     }
 
     override fun getPageTitle(position: Int): CharSequence? {

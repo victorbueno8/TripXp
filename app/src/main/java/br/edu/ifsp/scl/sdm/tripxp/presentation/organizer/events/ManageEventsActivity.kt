@@ -1,4 +1,4 @@
-package br.edu.ifsp.scl.sdm.tripxp.presentation.organizer
+package br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.events
 
 import android.content.Intent
 import android.os.Bundle
@@ -15,7 +15,7 @@ import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.databinding.ActivityManageEventsBinding
 import br.edu.ifsp.scl.sdm.tripxp.presentation.LoginActivity
 import br.edu.ifsp.scl.sdm.tripxp.presentation.UserProfileActivity
-import br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.ui.main.SectionsPagerAdapter
+import br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.EditEventActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 

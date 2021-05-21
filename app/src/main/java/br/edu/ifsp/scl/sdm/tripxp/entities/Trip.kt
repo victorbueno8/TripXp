@@ -23,4 +23,9 @@ data class Trip(
         val returnDate: String = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Calendar.getInstance().time),
         val returnTime: String = SimpleDateFormat("HH:mm", Locale.getDefault()).format(Calendar.getInstance().time),
         val returnObservation: String = ""
-        )
+        ) {
+
+        fun getMeetingDateTime() : String {
+                return this.meetingDate + " " + this.meetingTime
+        }
+}
