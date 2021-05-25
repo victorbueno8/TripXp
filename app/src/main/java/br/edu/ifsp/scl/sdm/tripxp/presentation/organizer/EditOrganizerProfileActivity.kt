@@ -1,4 +1,4 @@
-package br.edu.ifsp.scl.sdm.tripxp.presentation
+package br.edu.ifsp.scl.sdm.tripxp.presentation.organizer
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.widget.Toast
 import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.entities.Company
+import br.edu.ifsp.scl.sdm.tripxp.presentation.EditProfileActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_edit_organizer_profile.*
 

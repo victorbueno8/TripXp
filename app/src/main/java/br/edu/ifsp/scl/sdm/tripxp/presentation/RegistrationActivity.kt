@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import br.edu.ifsp.scl.sdm.tripxp.R
+import br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.EditOrganizerProfileActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_registration.*
 
