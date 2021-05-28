@@ -22,7 +22,7 @@
             android:name=".presentation.EditProfileActivity"
             android:label="Meu Perfil" />
         <activity
-            android:name=".presentation.MyTripsActivity"
+            android:name=".presentation.mytrips.MyTripsActivity"
             android:label="Minhas Excursões"
             android:theme="@style/Theme.TripXp.NoActionBar" />
         <activity

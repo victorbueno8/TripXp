@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import br.edu.ifsp.scl.sdm.tripxp.R
+import br.edu.ifsp.scl.sdm.tripxp.presentation.mytrips.MyTripsActivity
 import br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.events.ManageEventsActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore

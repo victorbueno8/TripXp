@@ -25,7 +25,10 @@ class OrganizerTripList {
             .get()
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    val trips = ArrayList(task.result?.toObjects(Trip::class.java))
+                    val trips = ArrayList<Trip>()
+                    task.result?.forEach { trip ->
+                        trips.add(trip.toObject(Trip::class.java).apply { id = trip.id })
+                    }
                     myCallback(trips)
                 }
             }
