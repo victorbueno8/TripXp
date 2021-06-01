@@ -21,4 +21,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="meu_perfil">Meu Perfil</string>
     <string name="sair">Sair</string>
+    <string name="eventoLabel">Evento</string>
+    <string name="encontroLabel">Encontro</string>
+    <string name="finalLabel">Final:</string>
+    <string name="inicioLabel">Inicio:</string>
+    <string name="local_de_destino_label">Local de Destino</string>
 </resources>
