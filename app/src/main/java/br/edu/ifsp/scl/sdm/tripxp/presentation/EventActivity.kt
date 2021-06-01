@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_event.*
+import kotlinx.android.synthetic.main.fragment_event_detail.*
 
 class EventActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -41,7 +42,19 @@ class EventActivity : AppCompatActivity() {
         documentReference.get()
             .addOnSuccessListener { snapshot ->
                 val event = snapshot.toObject(Trip::class.java)
-                eventTitleLb.text = event?.name
+                if (event != null) {
+                    eventTitleLb.text = event.name
+                    eventDescriptionTv.text = event.description
+                    destinationAddressTv.text = event.getEventLocation()
+                    eventStartTimeTv.text = event.getStartEventDateTime()
+                    eventEndTimeTv.text = event.getEndEventDateTime()
+                    gatheringAddressTv.text = event.getMeetingLocation()
+                    gatheringTimestampTv.text = event.getMeetingDateTime()
+                    gatheringObservationsTv.text = event.meetingObservation
+                    returnAddressTv.text = event.getReturnLocation()
+                    returnTimestampTv.text = event.returnDateTime()
+                    returnObservationsTv.text = event.returnObservation
+                }
             }
 
         joinButton.setOnClickListener { view ->
