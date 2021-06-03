@@ -6,11 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.entities.Trip
-import br.edu.ifsp.scl.sdm.tripxp.presentation.EventActivity
+import br.edu.ifsp.scl.sdm.tripxp.presentation.event.EventActivity
 import br.edu.ifsp.scl.sdm.tripxp.use_cases.OrganizerTripList
 import kotlinx.android.synthetic.main.fragment_my_trips.*
 

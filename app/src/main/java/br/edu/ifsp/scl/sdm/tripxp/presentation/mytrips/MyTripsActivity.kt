@@ -14,7 +14,6 @@ import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.presentation.LoginActivity
 import br.edu.ifsp.scl.sdm.tripxp.presentation.SearchTripsActivity
 import br.edu.ifsp.scl.sdm.tripxp.presentation.UserProfileActivity
-import br.edu.ifsp.scl.sdm.tripxp.presentation.ui.main.SectionsPagerAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 

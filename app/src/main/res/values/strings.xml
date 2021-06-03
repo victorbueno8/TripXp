@@ -26,4 +26,7 @@
     <string name="finalLabel">Final:</string>
     <string name="inicioLabel">Inicio:</string>
     <string name="local_de_destino_label">Local de Destino</string>
+    <string name="title_activity_manage_event">ManageEventActivity</string>
+    <string name="detalhes">Detalhes</string>
+    <string name="conversa">Conversa</string>
 </resources>

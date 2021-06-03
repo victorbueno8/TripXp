@@ -13,6 +13,7 @@ import androidx.annotation.RequiresApi
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import br.edu.ifsp.scl.sdm.tripxp.R
+import br.edu.ifsp.scl.sdm.tripxp.presentation.event.EventActivity
 
 class PaymentMethodActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.KITKAT)
