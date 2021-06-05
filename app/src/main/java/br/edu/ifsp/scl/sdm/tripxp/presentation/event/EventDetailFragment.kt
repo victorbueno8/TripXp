@@ -1,4 +1,4 @@
-package br.edu.ifsp.scl.sdm.tripxp.presentation.ui.main
+package br.edu.ifsp.scl.sdm.tripxp.presentation.event
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,10 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import br.edu.ifsp.scl.sdm.tripxp.R
 
-/**
- * A placeholder fragment containing a simple view.
- */
-class PlaceholderFragment : Fragment() {
+class EventDetailFragment : Fragment() {
 
     private lateinit var pageViewModel: PageViewModel
 
@@ -48,8 +45,8 @@ class PlaceholderFragment : Fragment() {
          * number.
          */
         @JvmStatic
-        fun newInstance(sectionNumber: Int): PlaceholderFragment {
-            return PlaceholderFragment().apply {
+        fun newInstance(sectionNumber: Int): EventDetailFragment {
+            return EventDetailFragment().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_SECTION_NUMBER, sectionNumber)
                 }

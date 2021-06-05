@@ -1,9 +1,12 @@
 package br.edu.ifsp.scl.sdm.tripxp.entities
 
+import com.google.firebase.firestore.Exclude
 import java.text.SimpleDateFormat
 import java.util.*
 
 data class Trip(
+        @get:Exclude
+        var id: String = "",
         val companyID: String = "",
         val name: String = "",
         val description: String = "",
@@ -25,7 +28,31 @@ data class Trip(
         val returnObservation: String = ""
         ) {
 
+        fun getStartEventDateTime(): String {
+                return  this.eventStartDate + " " + this.eventStartTime
+        }
+
+        fun getEndEventDateTime(): String {
+                return  this.eventEndDate + " " + this.eventEndTime
+        }
+
+        fun getEventLocation(): String {
+                return this.eventAddress + ", " + this.eventCity
+        }
+
         fun getMeetingDateTime() : String {
                 return this.meetingDate + " " + this.meetingTime
+        }
+
+        fun getMeetingLocation() : String {
+                return this.meetingAddress + ", " + this.meetingCity
+        }
+
+        fun returnDateTime() : String {
+                return this.returnDate + " " + this.returnTime
+        }
+
+        fun getReturnLocation() : String {
+                return this.returnAddress + ", " + this.returnCity
         }
 }

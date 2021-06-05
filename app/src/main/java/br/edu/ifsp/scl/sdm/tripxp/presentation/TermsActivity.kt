@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import br.edu.ifsp.scl.sdm.tripxp.R
+import br.edu.ifsp.scl.sdm.tripxp.presentation.event.EventActivity
 
 class TermsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,23 +1,19 @@
-package br.edu.ifsp.scl.sdm.tripxp.presentation
+package br.edu.ifsp.scl.sdm.tripxp.presentation.event
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.EventLogTags
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.Button
 import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.entities.Trip
-import br.edu.ifsp.scl.sdm.tripxp.presentation.ui.main.SectionsPagerAdapter
+import br.edu.ifsp.scl.sdm.tripxp.presentation.TermsActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_event.*
+import kotlinx.android.synthetic.main.fragment_event_detail.*
 
 class EventActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -41,7 +37,19 @@ class EventActivity : AppCompatActivity() {
         documentReference.get()
             .addOnSuccessListener { snapshot ->
                 val event = snapshot.toObject(Trip::class.java)
-                eventTitleLb.text = event?.name
+                if (event != null) {
+                    eventTitleLb.text = event.name
+                    eventDescriptionTv.text = event.description
+                    destinationAddressTv.text = event.getEventLocation()
+                    eventStartTimeTv.text = event.getStartEventDateTime()
+                    eventEndTimeTv.text = event.getEndEventDateTime()
+                    gatheringAddressTv.text = event.getMeetingLocation()
+                    gatheringTimestampTv.text = event.getMeetingDateTime()
+                    gatheringObservationsTv.text = event.meetingObservation
+                    returnAddressTv.text = event.getReturnLocation()
+                    returnTimestampTv.text = event.returnDateTime()
+                    returnObservationsTv.text = event.returnObservation
+                }
             }
 
         joinButton.setOnClickListener { view ->

@@ -1,22 +1,19 @@
-package br.edu.ifsp.scl.sdm.tripxp.presentation
+package br.edu.ifsp.scl.sdm.tripxp.presentation.mytrips
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.view.View
 import androidx.appcompat.widget.Toolbar
 import br.edu.ifsp.scl.sdm.tripxp.R
-import br.edu.ifsp.scl.sdm.tripxp.entities.Company
-import br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.EditEventActivity
-import br.edu.ifsp.scl.sdm.tripxp.presentation.ui.main.SectionsPagerAdapter
+import br.edu.ifsp.scl.sdm.tripxp.presentation.LoginActivity
+import br.edu.ifsp.scl.sdm.tripxp.presentation.SearchTripsActivity
+import br.edu.ifsp.scl.sdm.tripxp.presentation.UserProfileActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 

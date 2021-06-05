@@ -1,15 +1,15 @@
-package br.edu.ifsp.scl.sdm.tripxp.presentation
+package br.edu.ifsp.scl.sdm.tripxp.presentation.mytrips
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.entities.Trip
+import br.edu.ifsp.scl.sdm.tripxp.presentation.event.EventActivity
 import br.edu.ifsp.scl.sdm.tripxp.use_cases.OrganizerTripList
 import kotlinx.android.synthetic.main.fragment_my_trips.*
 
@@ -23,12 +23,15 @@ private const val ARG_SECTION_NUMBER = "section_number"
  * Use the [MyTripsFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class MyTripsFragment : Fragment() {
+class MyTripsFragment : Fragment(), EventListItemAdapter.OnItemClickListener {
     private var sectionNumber: Int? = null
-//    private var tripList: ArrayList<Trip>? = null
+    private var viewContext = activity?.applicationContext
+    private var tripList: ArrayList<Trip>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewContext = activity?.applicationContext
+
         arguments?.let {
             sectionNumber = it.getInt(ARG_SECTION_NUMBER)
             // tripList = it.get(ARG_TRIP_LIST)
@@ -52,8 +55,19 @@ class MyTripsFragment : Fragment() {
             layoutManager = LinearLayoutManager(activity)
             // set the custom adapter to the RecyclerView
             OrganizerTripList().getCommingTrips { trips ->
-                adapter = EventListItemAdapter(trips)
+                tripList = trips
+                adapter = EventListItemAdapter(trips, this@MyTripsFragment)
             }
+        }
+    }
+
+    override fun onItemClick(position: Int) {
+        val clickedTrip: Trip? = tripList?.get(position)
+
+        if (clickedTrip != null) {
+            val eventPage = Intent(activity, EventActivity::class.java)
+            eventPage.putExtra("eventID", clickedTrip.id)
+            startActivity(eventPage)
         }
     }
 

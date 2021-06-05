@@ -1,4 +1,4 @@
-package br.edu.ifsp.scl.sdm.tripxp.presentation.ui.main
+package br.edu.ifsp.scl.sdm.tripxp.presentation.event
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

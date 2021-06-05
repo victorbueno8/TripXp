@@ -1,18 +1,16 @@
 package br.edu.ifsp.scl.sdm.tripxp.presentation
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.entities.User
+import br.edu.ifsp.scl.sdm.tripxp.presentation.mytrips.MyTripsActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_edit_profile.*
-import java.text.SimpleDateFormat
-import java.util.*
 
 class EditProfileActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth

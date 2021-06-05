@@ -1,21 +1,34 @@
-package br.edu.ifsp.scl.sdm.tripxp.presentation
+package br.edu.ifsp.scl.sdm.tripxp.presentation.mytrips
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.entities.Trip
 
-class EventListItemAdapter(private val tripsList: ArrayList<Trip>) : RecyclerView.Adapter<EventListItemAdapter.ViewHolder>() {
+class EventListItemAdapter(
+    private val tripsList: ArrayList<Trip>,
+    private val listener: OnItemClickListener
+) : RecyclerView.Adapter<EventListItemAdapter.ViewHolder>() {
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
         val tripName: TextView = view.findViewById(R.id.tripNameTv)
         val tripDateTime: TextView = view.findViewById(R.id.tripDateTimeTv)
         val tripDestination : TextView = view.findViewById(R.id.tripDestinationTv)
         // val tripImage : ImageView = view.findViewById(R.id.tripImageIv)
+
+        init {
+            view.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View?) {
+            val position = adapterPosition
+            if (position != RecyclerView.NO_POSITION) {
+                listener.onItemClick(position)
+            }
+        }
     }
 
     // Create new views (invoked by the layout manager)
@@ -39,4 +52,8 @@ class EventListItemAdapter(private val tripsList: ArrayList<Trip>) : RecyclerVie
 
     // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = tripsList.size
+
+    interface OnItemClickListener {
+        fun onItemClick(position: Int)
+    }
 }
