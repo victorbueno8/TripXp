@@ -12,10 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TripXp">
         <activity
-            android:name=".presentation.organizer.event.ManageEventActivity"
-            android:label="@string/title_activity_manage_event"
-            android:theme="@style/Theme.TripXp.NoActionBar"></activity>
-        <activity
             android:name=".presentation.organizer.events.ManageEventsActivity"
             android:label="@string/title_activity_manage_events"
             android:theme="@style/Theme.TripXp.NoActionBar" />
@@ -45,7 +41,7 @@
             android:label="@string/title_activity_event"
             android:theme="@style/Theme.TripXp.NoActionBar" />
         <activity
-            android:name=".presentation.SearchTripsActivity"
+            android:name=".presentation.search_trip.SearchTripsActivity"
             android:label="Buscar Excursões" />
         <activity
             android:name=".presentation.RegistrationActivity"

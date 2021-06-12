@@ -12,7 +12,7 @@ import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.presentation.LoginActivity
-import br.edu.ifsp.scl.sdm.tripxp.presentation.SearchTripsActivity
+import br.edu.ifsp.scl.sdm.tripxp.presentation.search_trip.SearchTripsActivity
 import br.edu.ifsp.scl.sdm.tripxp.presentation.UserProfileActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
