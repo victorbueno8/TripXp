@@ -1,4 +1,4 @@
-package br.edu.ifsp.scl.sdm.tripxp.presentation
+package br.edu.ifsp.scl.sdm.tripxp.presentation.join_trip
 
 import android.content.Intent
 import android.os.Build
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.transition.AutoTransition
 import android.transition.TransitionManager
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
@@ -13,7 +14,6 @@ import androidx.annotation.RequiresApi
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import br.edu.ifsp.scl.sdm.tripxp.R
-import br.edu.ifsp.scl.sdm.tripxp.presentation.event.EventActivity
 
 class PaymentMethodActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.KITKAT)
@@ -43,7 +43,12 @@ class PaymentMethodActivity : AppCompatActivity() {
 
         val confirmPaymentButton : Button = findViewById(R.id.confirmCreditCardBt)
         confirmPaymentButton.setOnClickListener { view ->
-            startActivity(Intent(this, EventActivity::class.java))
+            val confirmationPage = Intent(this, PaymentConfirmActivity::class.java)
+            confirmationPage.putExtra("eventID", intent.getStringExtra("eventID"))
+            confirmationPage.putExtra("qtd", intent.getIntExtra("qtd", 0))
+            confirmationPage.putExtra("total", intent.getDoubleExtra("total", 0.0))
+            confirmationPage.putExtra("acceptedTerms", intent.getBooleanExtra("acceptedTerms", true))
+            startActivity(confirmationPage)
         }
     }
 
