@@ -1,4 +1,4 @@
-package br.edu.ifsp.scl.sdm.tripxp.presentation.organizer
+package br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.events
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -48,9 +48,9 @@ class EditEventActivity : AppCompatActivity() {
                 .add(trip)
                 .addOnSuccessListener { document ->
                     Snackbar.make(view, "Nova viagem cadastrada!", Snackbar.LENGTH_LONG).show()
-                    val eventPage = Intent(this, EventActivity::class.java)
-                    eventPage.putExtra("eventID", document.id)
-                    startActivity(eventPage)
+                    val termsPage = Intent(this, EditEventTermsActivity::class.java)
+                    termsPage.putExtra("eventID", document.id)
+                    startActivity(termsPage)
                 }
                 .addOnFailureListener{ e ->
                     Snackbar.make(view, "Erro: " + e.message, Snackbar.LENGTH_LONG).show()

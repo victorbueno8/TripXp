@@ -11,7 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TripXp">
-        <activity android:name=".presentation.join_trip.BuyTicketsActivity"></activity>
+        <activity
+            android:name=".presentation.organizer.events.EditEventTicketsActivity"
+            android:label="Tickets e Lugares da Viagem" />
+        <activity
+            android:name=".presentation.organizer.events.EditEventTermsActivity"
+            android:label="Termos e Regras da Viagem" />
+        <activity android:name=".presentation.join_trip.BuyTicketsActivity" />
         <activity android:name=".presentation.join_trip.PaymentConfirmActivity" />
         <activity
             android:name=".presentation.join_trip.JoinTripConfirmActivity"
@@ -31,7 +37,7 @@
             android:label="Minhas Excursões"
             android:theme="@style/Theme.TripXp.NoActionBar" />
         <activity
-            android:name=".presentation.organizer.EditEventActivity"
+            android:name=".presentation.organizer.events.EditEventActivity"
             android:label="Criação da Excurção" />
         <activity
             android:name=".presentation.join_trip.PaymentMethodActivity"

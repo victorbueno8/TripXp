@@ -25,7 +25,10 @@ data class Trip(
         val returnCity: String = "",
         val returnDate: String = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Calendar.getInstance().time),
         val returnTime: String = SimpleDateFormat("HH:mm", Locale.getDefault()).format(Calendar.getInstance().time),
-        val returnObservation: String = ""
+        val returnObservation: String = "",
+        val terms: String = "",
+        val ticketPrice: Double = 0.00,
+        val ticketQtd: Int = 1,
         ) {
 
         fun getStartEventDateTime(): String {

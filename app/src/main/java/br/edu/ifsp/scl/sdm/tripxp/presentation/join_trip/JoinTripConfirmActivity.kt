@@ -13,8 +13,6 @@ class JoinTripConfirmActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_join_trip_confirm)
 
-        Log.d("OK", intent.getStringExtra("ticketID").toString())
-
         continueBt.setOnClickListener { view ->
             val eventPage = Intent(this, EventActivity::class.java)
             eventPage.putExtra("eventID", intent.getStringExtra("eventID") ?: "")
