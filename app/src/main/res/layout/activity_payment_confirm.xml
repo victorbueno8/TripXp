@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.join_trip.PaymentConfirmActivity">
+
+    <TextView
+        android:id="@+id/totalPaymentTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="R$ 0,00"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/totalPaymentLb"
+        app:layout_constraintTop_toBottomOf="@+id/totalPaymentLb" />
+
+    <TextView
+        android:id="@+id/totalPaymentLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Total"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paymentDateTv" />
+
+    <Button
+        android:id="@+id/confirmPaymentBt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Confirmar Pagamento"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tripTitleLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Excursão"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tripTitleTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="NOME DA EXCURSÃO"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tripTitleLb"
+        app:layout_constraintTop_toBottomOf="@+id/tripTitleLb" />
+
+    <TextView
+        android:id="@+id/ticketPriceLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Preço da Passagem"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tripTitleTv" />
+
+    <TextView
+        android:id="@+id/ticketPriceTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="R$ 100,00"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/ticketPriceLb"
+        app:layout_constraintTop_toBottomOf="@+id/ticketPriceLb" />
+
+    <TextView
+        android:id="@+id/ticketQtdLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Quantidade"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ticketPriceTv" />
+
+    <TextView
+        android:id="@+id/ticketQtdTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="1"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/ticketQtdLb"
+        app:layout_constraintTop_toBottomOf="@+id/ticketQtdLb" />
+
+    <TextView
+        android:id="@+id/paymentMethodLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Método de Pagamento"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ticketQtdTv" />
+
+    <TextView
+        android:id="@+id/paymentMethodTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Crédito"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/paymentMethodLb"
+        app:layout_constraintTop_toBottomOf="@+id/paymentMethodLb" />
+
+    <TextView
+        android:id="@+id/paymentDateLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Data de Pagamento"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paymentMethodTv" />
+
+    <TextView
+        android:id="@+id/paymentDateTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="00/00/0000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/paymentDateLb"
+        app:layout_constraintTop_toBottomOf="@+id/paymentDateLb" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

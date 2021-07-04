@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="2dp"
+    tools:context=".presentation.join_trip.BuyTicketsActivity">
+
+    <TextView
+        android:id="@+id/unitPriceTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="R$ 0,00"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/unitTicketPriceLv"
+        app:layout_constraintStart_toStartOf="@+id/unitTicketPriceLv"
+        app:layout_constraintTop_toBottomOf="@+id/unitTicketPriceLv" />
+
+    <ImageView
+        android:id="@+id/tripImageIv2"
+        android:layout_width="0dp"
+        android:layout_height="155dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/unitTicketPriceLv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Valor do Lugar"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/avaliableTicketsLb"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tripImageIv2" />
+
+    <TextView
+        android:id="@+id/avaliableTicketsLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Lugares Disponíveis"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/unitTicketPriceLv"
+        app:layout_constraintTop_toBottomOf="@+id/tripImageIv2" />
+
+    <TextView
+        android:id="@+id/numberAvailableTicketsTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="4"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/avaliableTicketsLb"
+        app:layout_constraintStart_toStartOf="@+id/avaliableTicketsLb"
+        app:layout_constraintTop_toBottomOf="@+id/avaliableTicketsLb" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="409dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/unitPriceTv">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tickets"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/numberOfTicketsTv"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="28dp"
+                android:text="1"
+                android:textSize="34sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+            <Button
+                android:id="@+id/plusBt"
+                android:layout_width="55dp"
+                android:layout_height="57dp"
+                android:includeFontPadding="false"
+                android:paddingLeft="4dp"
+                android:paddingTop="4dp"
+                android:paddingRight="4dp"
+                android:paddingBottom="4dp"
+                android:text="+"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/minusBt"
+                app:layout_constraintStart_toEndOf="@+id/minusBt"
+                app:layout_constraintTop_toTopOf="@+id/minusBt" />
+
+            <Button
+                android:id="@+id/minusBt"
+                android:layout_width="55dp"
+                android:layout_height="57dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="24dp"
+                android:includeFontPadding="false"
+                android:paddingLeft="4dp"
+                android:paddingTop="4dp"
+                android:paddingRight="4dp"
+                android:paddingBottom="4dp"
+                android:text="-"
+                android:textColor="@color/black"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                app:backgroundTint="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/numberOfTicketsTv"
+                app:layout_constraintStart_toEndOf="@+id/numberOfTicketsTv"
+                app:layout_constraintTop_toTopOf="@+id/numberOfTicketsTv" />
+
+            <TextView
+                android:id="@+id/totalPaymentTv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="R$ 0,00"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/totalPaymentLb2" />
+
+            <TextView
+                android:id="@+id/totalPaymentLb2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/totalPaymentTv2"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/buyTicketsBt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Comprar Lugares"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

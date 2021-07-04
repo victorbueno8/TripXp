@@ -12,6 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TripXp">
         <activity
+            android:name=".presentation.organizer.events.EditEventTicketsActivity"
+            android:label="Tickets e Lugares da Viagem" />
+        <activity
+            android:name=".presentation.organizer.events.EditEventTermsActivity"
+            android:label="Termos e Regras da Viagem" />
+        <activity android:name=".presentation.join_trip.BuyTicketsActivity" />
+        <activity android:name=".presentation.join_trip.PaymentConfirmActivity" />
+        <activity
+            android:name=".presentation.join_trip.JoinTripConfirmActivity"
+            android:theme="@style/Theme.TripXp.NoActionBar" />
+        <activity
             android:name=".presentation.organizer.events.ManageEventsActivity"
             android:label="@string/title_activity_manage_events"
             android:theme="@style/Theme.TripXp.NoActionBar" />
@@ -26,13 +37,13 @@
             android:label="Minhas Excursões"
             android:theme="@style/Theme.TripXp.NoActionBar" />
         <activity
-            android:name=".presentation.organizer.EditEventActivity"
+            android:name=".presentation.organizer.events.EditEventActivity"
             android:label="Criação da Excurção" />
         <activity
-            android:name=".presentation.PaymentMethodActivity"
+            android:name=".presentation.join_trip.PaymentMethodActivity"
             android:label="Método de Pagamento" />
         <activity
-            android:name=".presentation.TermsActivity"
+            android:name=".presentation.join_trip.TermsActivity"
             android:label="Termos e Regras da Excursão" />
         <activity android:name=".presentation.UserProfileActivity" />
         <activity android:name=".presentation.organizer.OrganizerProfileActivity" />

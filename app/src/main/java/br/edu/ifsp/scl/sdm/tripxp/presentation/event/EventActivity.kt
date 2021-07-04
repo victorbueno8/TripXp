@@ -2,13 +2,15 @@ package br.edu.ifsp.scl.sdm.tripxp.presentation.event
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.entities.Trip
-import br.edu.ifsp.scl.sdm.tripxp.presentation.TermsActivity
+import br.edu.ifsp.scl.sdm.tripxp.presentation.join_trip.BuyTicketsActivity
+import br.edu.ifsp.scl.sdm.tripxp.presentation.join_trip.TermsActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
@@ -28,6 +30,9 @@ class EventActivity : AppCompatActivity() {
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
         val joinButton: Button = findViewById(R.id.joinBt)
+        if (intent.getStringExtra("ticketID") != null) {
+            joinButton.visibility = View.GONE
+        }
 
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
@@ -53,7 +58,10 @@ class EventActivity : AppCompatActivity() {
             }
 
         joinButton.setOnClickListener { view ->
-            startActivity(Intent(this, TermsActivity::class.java))
+            val buyTicketsPage = Intent(this, BuyTicketsActivity::class.java)
+            buyTicketsPage.putExtra("eventID", eventID)
+            startActivity(buyTicketsPage)
+
         }
     }
 }
