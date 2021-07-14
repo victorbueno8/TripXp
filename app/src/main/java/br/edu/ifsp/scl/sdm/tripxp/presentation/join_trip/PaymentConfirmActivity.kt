@@ -54,7 +54,7 @@ class PaymentConfirmActivity : AppCompatActivity() {
                 paymentDate = paymentDateTv.text.toString(),
                 total = numFormat.parse(totalPaymentTv.text.toString())
             )
-            db.collection("tickets")
+            db.collection("trips").document(tripID).collection("tickets")
                 .add(ticket)
                 .addOnSuccessListener{
                     val finishPage = Intent(this, JoinTripConfirmActivity::class.java)
