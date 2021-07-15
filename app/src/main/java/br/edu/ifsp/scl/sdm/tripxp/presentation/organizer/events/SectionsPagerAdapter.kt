@@ -21,8 +21,8 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
-            0 -> MyTripsFragment.newInstance(position + 1)
-            else -> MyTripsFragment.newInstance(position + 1)
+            0 -> MyCompanyEventsFragment.newInstance(position + 1)
+            else -> MyCompanyEventsFragment.newInstance(position + 1)
         }
     }
 
