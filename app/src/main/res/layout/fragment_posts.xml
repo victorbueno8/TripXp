@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.organizer.events.MyPostsFragment">
+    tools:context=".presentation.event.PostsFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,8 +12,9 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/createPostLv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <EditText
@@ -23,7 +24,7 @@
                 android:layout_weight="70"
                 android:ems="10"
                 android:gravity="start|top"
-                android:hint="Comunique-se com seus clientes!"
+                android:hint="Mensagem"
                 android:inputType="textMultiLine" />
 
             <Button

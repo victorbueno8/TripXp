@@ -11,6 +11,7 @@ import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.entities.Trip
 import br.edu.ifsp.scl.sdm.tripxp.presentation.join_trip.BuyTicketsActivity
 import br.edu.ifsp.scl.sdm.tripxp.presentation.join_trip.TermsActivity
+import br.edu.ifsp.scl.sdm.tripxp.use_cases.UserUseCases
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
