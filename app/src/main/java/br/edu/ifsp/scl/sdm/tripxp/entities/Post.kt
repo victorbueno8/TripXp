@@ -7,7 +7,6 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 data class Post (
-    @get:Exclude
     @DocumentId
     var id: String = "",
     val user: User = User(),

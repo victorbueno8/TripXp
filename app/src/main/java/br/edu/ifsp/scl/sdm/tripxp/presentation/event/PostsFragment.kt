@@ -29,6 +29,12 @@ class PostsFragment : Fragment() {
 
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
+
+        UserUseCases().getUser { user ->
+            if (user.userType != "organizer") {
+                createPostLv.visibility = View.GONE
+            }
+        }
     }
 
     override fun onCreateView(
@@ -42,7 +48,7 @@ class PostsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         postFeedRv.apply {
             layoutManager = LinearLayoutManager(activity)
-            adapter = MyPostsRecyclerViewAdapter(postList)
+            adapter = MyPostsRecyclerViewAdapter(context, postList)
 
             val tripID = activity?.intent?.getStringExtra("eventID") ?: ""
             if (tripID != "") {

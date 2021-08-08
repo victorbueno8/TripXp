@@ -31,8 +31,10 @@ class EventActivity : AppCompatActivity() {
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
         val joinButton: Button = findViewById(R.id.joinBt)
-        if (intent.getStringExtra("ticketID") != null) {
-            joinButton.visibility = View.GONE
+        UserUseCases().getUser { user ->
+            if (user.userType != "user" || intent.getStringExtra("ticketID") != null) {
+                joinButton.visibility = View.GONE
+            }
         }
 
         auth = FirebaseAuth.getInstance()
