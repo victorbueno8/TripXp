@@ -14,8 +14,8 @@ class EventListItemAdapter(
 ) : RecyclerView.Adapter<EventListItemAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
-        val tripName: TextView = view.findViewById(R.id.tripNameTv)
-        val tripDateTime: TextView = view.findViewById(R.id.tripDateTimeTv)
+        val tripName: TextView = view.findViewById(R.id.postUserNameTv)
+        val tripDateTime: TextView = view.findViewById(R.id.postCreateDateTv)
         val tripDestination : TextView = view.findViewById(R.id.tripDestinationTv)
         // val tripImage : ImageView = view.findViewById(R.id.tripImageIv)
 
