@@ -34,6 +34,8 @@ class EventActivity : AppCompatActivity() {
         UserUseCases().getUser { user ->
             if (user.userType != "user" || intent.getStringExtra("ticketID") != null) {
                 joinButton.visibility = View.GONE
+            } else {
+                tabs.visibility = View.GONE
             }
         }
 

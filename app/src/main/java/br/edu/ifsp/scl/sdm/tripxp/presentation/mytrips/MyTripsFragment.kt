@@ -76,7 +76,10 @@ class MyTripsFragment : Fragment(), EventListItemAdapter.OnItemClickListener {
                             for (snapshot: DocumentSnapshot in docs) {
                                 snapshot.reference.parent.parent?.let {
                                     it.get().addOnSuccessListener { ok ->
-                                        val trip = ok.toObject(Trip::class.java).apply { this?.id = ok.id }
+                                        val trip = ok.toObject(Trip::class.java).apply {
+                                            this?.id = ok.id
+                                            this?.ticketID = snapshot.id
+                                        }
                                         if (trip != null) {
                                             tripList.add(trip)
                                         }
@@ -95,6 +98,7 @@ class MyTripsFragment : Fragment(), EventListItemAdapter.OnItemClickListener {
 
         val eventPage = Intent(activity, EventActivity::class.java)
         eventPage.putExtra("eventID", clickedTrip.id)
+        eventPage.putExtra("ticketID", clickedTrip.ticketID)
         startActivity(eventPage)
     }
 
