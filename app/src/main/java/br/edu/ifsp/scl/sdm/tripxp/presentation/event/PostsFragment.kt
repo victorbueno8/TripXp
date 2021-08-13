@@ -70,7 +70,7 @@ class PostsFragment : Fragment() {
                         db.collection("trips").document(tripID).collection("posts")
                             .add(post)
                             .addOnSuccessListener { document ->
-                                postList.add(0, post)
+                                postList.add(0, post.apply { id = document.id })
                                 postEt.text.clear()
                                 (adapter as MyPostsRecyclerViewAdapter).notifyDataSetChanged()
                                 Snackbar.make(view, "Postagem publicada!", Snackbar.LENGTH_LONG).show()

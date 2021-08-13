@@ -33,6 +33,8 @@ class PaymentConfirmActivity : AppCompatActivity() {
         TripUseCases().getTrip(tripID) {trip ->
             tripTitleTv.text = trip.name.toUpperCase(Locale.ROOT)
             ticketPriceTv.text = "R$ ${numFormat.format(trip.ticketPrice)}"
+            db.collection("trips").document(tripID)
+                .update("ticketQtd",trip.ticketQtd - ticketQtdTv.text.toString().toInt())
         }
         val qtd = intent.getIntExtra("qtd", 0)
         ticketQtdTv.text = qtd.toString()

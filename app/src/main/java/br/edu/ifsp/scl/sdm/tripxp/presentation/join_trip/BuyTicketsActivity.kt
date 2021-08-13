@@ -34,40 +34,36 @@ class BuyTicketsActivity : AppCompatActivity() {
                         val price = event.ticketPrice
                         unitPriceTv.text = "R$ ${numFormatter.format(price)}";
                         var tickets = 1
+                        val available = event.ticketQtd
+                        avaliableTicketsLb.text = available.toString()
+                        var total = price
+                        totalPaymentTv2.text = "R$ ${numFormatter.format(total)}";
 
-                        db.collection("tickets").whereEqualTo("tripID", eventID)
-                            .get()
-                            .addOnSuccessListener { snap ->
-                                val available = numberAvailableTicketsTv.text.toString().toInt()
-                                var total = price
+                        plusBt.setOnClickListener {
+                            if (tickets in 1 until available) {
+                                tickets++
+                                numberOfTicketsTv.text = tickets.toString()
+                                total = price * tickets.toDouble()
                                 totalPaymentTv2.text = "R$ ${numFormatter.format(total)}";
-
-                                plusBt.setOnClickListener {
-                                    if (tickets in 1 until available) {
-                                        tickets++
-                                        numberOfTicketsTv.text = tickets.toString()
-                                        total = price * tickets.toDouble()
-                                        totalPaymentTv2.text = "R$ ${numFormatter.format(total)}";
-                                    }
-                                }
-
-                                minusBt.setOnClickListener {
-                                    if (tickets in 2..available) {
-                                        tickets--
-                                        numberOfTicketsTv.text = tickets.toString()
-                                        total = price * tickets.toDouble()
-                                        totalPaymentTv2.text = "R$ ${numFormatter.format(total)}";
-                                    }
-                                }
-
-                                buyTicketsBt.setOnClickListener { view ->
-                                    val termsAcceptPage = Intent(this, TermsActivity::class.java)
-                                    termsAcceptPage.putExtra("eventID", eventID)
-                                    termsAcceptPage.putExtra("qtd", tickets)
-                                    termsAcceptPage.putExtra("total", total)
-                                    startActivity(termsAcceptPage)
-                                }
                             }
+                        }
+
+                        minusBt.setOnClickListener {
+                            if (tickets in 2..available) {
+                                tickets--
+                                numberOfTicketsTv.text = tickets.toString()
+                                total = price * tickets.toDouble()
+                                totalPaymentTv2.text = "R$ ${numFormatter.format(total)}";
+                            }
+                        }
+
+                        buyTicketsBt.setOnClickListener { view ->
+                            val termsAcceptPage = Intent(this, TermsActivity::class.java)
+                            termsAcceptPage.putExtra("eventID", eventID)
+                            termsAcceptPage.putExtra("qtd", tickets)
+                            termsAcceptPage.putExtra("total", total)
+                            startActivity(termsAcceptPage)
+                        }
 
                     }
                 }
