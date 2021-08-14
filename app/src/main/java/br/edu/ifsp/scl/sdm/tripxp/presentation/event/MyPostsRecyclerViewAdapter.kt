@@ -77,7 +77,7 @@ class MyPostsRecyclerViewAdapter(
                         commentsCollection.add(comment)
                             .addOnSuccessListener { snapshot ->
                                 holder.commentEt.text.clear()
-                                comments.add(0, comment)
+                                comments.add(0, comment.apply { id = snapshot.id })
                                 holder.commentsRv.adapter = CommentsRecyclerViewAdapter(comments)
                                 Snackbar.make(view, "Comentário publicado!", Snackbar.LENGTH_LONG).show()
                             }

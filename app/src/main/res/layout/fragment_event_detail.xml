@@ -46,7 +46,54 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/tripInfoCl"
                 android:layout_width="match_parent"
-                android:layout_height="441dp">
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/eventAvaliableTicketsLb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lugares Disponíveis"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/eventUnitTicketPriceLv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/eventUnitTicketPriceLv" />
+
+                <TextView
+                    android:id="@+id/eventNumberAvailableTicketsTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="4"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/eventAvaliableTicketsLb"
+                    app:layout_constraintStart_toStartOf="@+id/eventAvaliableTicketsLb"
+                    app:layout_constraintTop_toBottomOf="@+id/eventAvaliableTicketsLb" />
+
+                <TextView
+                    android:id="@+id/eventUnitPriceTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="R$ 0,00"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/eventUnitTicketPriceLv"
+                    app:layout_constraintStart_toStartOf="@+id/eventUnitTicketPriceLv"
+                    app:layout_constraintTop_toBottomOf="@+id/eventUnitTicketPriceLv" />
+
+                <TextView
+                    android:id="@+id/eventUnitTicketPriceLv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Valor do Lugar"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toStartOf="@+id/eventAvaliableTicketsLb"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/returnObservationsTv"
@@ -57,7 +104,9 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="32dp"
                     android:layout_marginRight="32dp"
+                    android:layout_marginBottom="24dp"
                     android:text="Observações extras com informações mais importantes para a volta da viagem"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/returnTimestampTv" />
@@ -205,6 +254,7 @@
                     android:layout_marginRight="32dp"
                     android:text="Endereço e local de destino, cidade - estado"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/destinationLb" />
 
@@ -214,11 +264,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
                     android:layout_marginLeft="32dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="16dp"
                     android:text="Evento"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/eventUnitPriceTv" />
 
                 <TextView
                     android:id="@+id/eventDescriptionTv"
