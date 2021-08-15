@@ -1,7 +1,6 @@
-package br.edu.ifsp.scl.sdm.tripxp.presentation.event
+package br.edu.ifsp.scl.sdm.tripxp.presentation.event.posts
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

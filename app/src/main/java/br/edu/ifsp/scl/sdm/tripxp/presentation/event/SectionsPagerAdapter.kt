@@ -5,7 +5,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import br.edu.ifsp.scl.sdm.tripxp.R
-import br.edu.ifsp.scl.sdm.tripxp.presentation.mytrips.MyTripsFragment
+import br.edu.ifsp.scl.sdm.tripxp.presentation.event.details.EventDetailFragment
+import br.edu.ifsp.scl.sdm.tripxp.presentation.event.posts.PostsFragment
 
 private val TAB_TITLES = arrayOf(
     R.string.detalhes,

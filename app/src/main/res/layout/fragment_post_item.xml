@@ -106,7 +106,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="LinearLayoutManager"
-        tools:context=".presentation.event.PostsFragment"
+        tools:context=".presentation.event.posts.PostsFragment"
         tools:listitem="@layout/fragment_comment_item" />
 
 </LinearLayout>

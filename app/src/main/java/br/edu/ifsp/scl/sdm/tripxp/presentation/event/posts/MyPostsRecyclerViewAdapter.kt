@@ -1,4 +1,4 @@
-package br.edu.ifsp.scl.sdm.tripxp.presentation.event
+package br.edu.ifsp.scl.sdm.tripxp.presentation.event.posts
 
 import android.content.Context
 import android.util.Log
@@ -18,7 +18,6 @@ import br.edu.ifsp.scl.sdm.tripxp.use_cases.UserUseCases
 import br.edu.ifsp.scl.sdm.tripxp.util.DateFormat
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FieldPath
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.fragment_posts.*

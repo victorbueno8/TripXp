@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.event.PostsFragment">
+    tools:context=".presentation.event.posts.PostsFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layoutManager="LinearLayoutManager"
-            tools:context=".presentation.event.PostsFragment"
+            tools:context=".presentation.event.posts.PostsFragment"
             tools:listitem="@layout/fragment_post_item" />
 
     </LinearLayout>

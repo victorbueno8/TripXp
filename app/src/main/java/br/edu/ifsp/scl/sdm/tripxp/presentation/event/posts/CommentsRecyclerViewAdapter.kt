@@ -1,21 +1,13 @@
-package br.edu.ifsp.scl.sdm.tripxp.presentation.event
+package br.edu.ifsp.scl.sdm.tripxp.presentation.event.posts
 
-import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.edu.ifsp.scl.sdm.tripxp.databinding.FragmentCommentItemBinding
-import br.edu.ifsp.scl.sdm.tripxp.databinding.FragmentPostItemBinding
-import br.edu.ifsp.scl.sdm.tripxp.entities.Post
 import br.edu.ifsp.scl.sdm.tripxp.entities.PostComment
-import br.edu.ifsp.scl.sdm.tripxp.use_cases.UserUseCases
 import br.edu.ifsp.scl.sdm.tripxp.util.DateFormat
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
