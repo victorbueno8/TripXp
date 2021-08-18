@@ -1,11 +1,10 @@
-package br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.events
+package br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.events.edit
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.entities.Trip
-import br.edu.ifsp.scl.sdm.tripxp.presentation.event.EventActivity
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -48,9 +47,9 @@ class EditEventActivity : AppCompatActivity() {
                 .add(trip)
                 .addOnSuccessListener { document ->
                     Snackbar.make(view, "Nova viagem cadastrada!", Snackbar.LENGTH_LONG).show()
-                    val termsPage = Intent(this, EditEventTermsActivity::class.java)
-                    termsPage.putExtra("eventID", document.id)
-                    startActivity(termsPage)
+                    val imagePage = Intent(this, EditEventImageActivity::class.java)
+                    imagePage.putExtra("eventID", document.id)
+                    startActivity(imagePage)
                 }
                 .addOnFailureListener{ e ->
                     Snackbar.make(view, "Erro: " + e.message, Snackbar.LENGTH_LONG).show()

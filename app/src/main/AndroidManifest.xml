@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="br.edu.ifsp.scl.sdm.tripxp" >
+    package="br.edu.ifsp.scl.sdm.tripxp">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,12 +10,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TripXp" >
+        android:theme="@style/Theme.TripXp">
         <activity
-            android:name=".presentation.organizer.events.EditEventTicketsActivity"
+            android:name=".presentation.organizer.events.edit.EditEventImageActivity"
+            android:exported="true" />
+        <activity
+            android:name=".presentation.organizer.events.edit.EditEventTicketsActivity"
             android:label="Tickets e Lugares da Viagem" />
         <activity
-            android:name=".presentation.organizer.events.EditEventTermsActivity"
+            android:name=".presentation.organizer.events.edit.EditEventTermsActivity"
             android:label="Termos e Regras da Viagem" />
         <activity android:name=".presentation.join_trip.BuyTicketsActivity" />
         <activity android:name=".presentation.join_trip.PaymentConfirmActivity" />
@@ -37,7 +40,7 @@
             android:label="Minhas Excursões"
             android:theme="@style/Theme.TripXp.NoActionBar" />
         <activity
-            android:name=".presentation.organizer.events.EditEventActivity"
+            android:name=".presentation.organizer.events.edit.EditEventActivity"
             android:label="Criação da Excurção" />
         <activity
             android:name=".presentation.join_trip.PaymentMethodActivity"
@@ -60,7 +63,7 @@
         <activity
             android:name=".presentation.LoginActivity"
             android:label="Login" />
-        <activity android:name=".presentation.SplashScreenActivity" >
+        <activity android:name=".presentation.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -69,7 +72,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="Main Menu" >
+            android:label="Main Menu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>

@@ -44,7 +44,7 @@ class TripUseCases {
 
     fun getMyCommingTrips(myCallback: (ArrayList<Trip>) -> Unit) {
         db.collectionGroup("tickets")
-            .whereEqualTo("userID", auth.currentUser.uid)
+            .whereEqualTo("userID", auth.currentUser!!.uid)
             .get()
             .addOnFailureListener { e ->
                 Log.d("ERROR", e.message.toString())

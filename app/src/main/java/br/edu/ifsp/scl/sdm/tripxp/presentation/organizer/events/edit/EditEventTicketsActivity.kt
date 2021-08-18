@@ -1,4 +1,4 @@
-package br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.events
+package br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.events.edit
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +9,6 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_edit_event_terms.*
 import kotlinx.android.synthetic.main.activity_edit_event_tickets.*
 
 class EditEventTicketsActivity : AppCompatActivity() {
