@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_edit_event_image.*
 import kotlinx.android.synthetic.main.activity_edit_event_terms.*
 import java.util.*
@@ -28,11 +29,13 @@ class EditEventImageActivity : AppCompatActivity() {
 
         eventID = intent.getStringExtra("eventID") ?: ""
 
+        eventImagePreviewIv.visibility = View.GONE
         selectImageBt.setOnClickListener { view ->
             selectImage()
         }
 
         imageEditBtn.setOnClickListener { view ->
+            imageEditBtn.isEnabled = false
             uploadImage(view)
         }
         imageEditBtn.isEnabled = false
@@ -50,8 +53,9 @@ class EditEventImageActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == 100 && resultCode == RESULT_OK) {
+            eventImagePreviewIv.visibility = View.VISIBLE
             imageUri = data?.data!!
-            eventImagePreviewIv.setImageURI(imageUri)
+            Picasso.get().load(imageUri).into(eventImagePreviewIv)
             imageEditBtn.isEnabled = true
         }
     }
@@ -67,9 +71,13 @@ class EditEventImageActivity : AppCompatActivity() {
                     documentReference.update("eventImageUri", uri.toString())
                         .addOnSuccessListener {
                             Snackbar.make(view, "A imagem da excursão foi salva!", Snackbar.LENGTH_LONG).show()
-                            val termsPage = Intent(this, EditEventTermsActivity::class.java)
-                            termsPage.putExtra("eventID", eventID)
-                            startActivity(termsPage)
+                            if (intent.getStringExtra("method")  == "patch") {
+                                finish()
+                            } else {
+                                val termsPage = Intent(this, EditEventTermsActivity::class.java)
+                                termsPage.putExtra("eventID", eventID)
+                                startActivity(termsPage)
+                            }
                         }
                         .addOnFailureListener{ e ->
                             Snackbar.make(view, "Erro: " + e.message, Snackbar.LENGTH_LONG).show()

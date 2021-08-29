@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/editDetailsMenuOption"
+        android:title="Editar Detalhes" />
+    <item
+        android:id="@+id/editImageMenuOption"
+        android:title="Editar Imagem" />
+    <item
+        android:id="@+id/editTermsMenuOption"
+        android:title="Editar Termos" />
+    <item
+        android:id="@+id/editTicketsMenuOption"
+        android:title="Editar Passagens" />
+</menu>
