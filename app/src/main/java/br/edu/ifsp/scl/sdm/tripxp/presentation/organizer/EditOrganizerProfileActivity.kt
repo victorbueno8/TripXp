@@ -26,7 +26,7 @@ class EditOrganizerProfileActivity : AppCompatActivity() {
             if (excursionCompanyNameET.text.toString().isNotEmpty() && permissionDocumentEt.text.toString().isNotEmpty() &&
                     companyCityEt.text.toString().isNotEmpty() && tripsTypesEt.text.toString().isNotEmpty()) {
                 val company: Company = Company(
-                        userID = auth.currentUser.uid,
+                        userID = auth.currentUser!!.uid,
                         name = excursionCompanyNameET.text.toString(),
                         document = permissionDocumentEt.text.toString(),
                         city = companyCityEt.text.toString(),

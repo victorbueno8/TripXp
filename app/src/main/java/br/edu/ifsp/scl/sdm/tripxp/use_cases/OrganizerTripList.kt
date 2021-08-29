@@ -13,7 +13,7 @@ class OrganizerTripList {
         var companyID = ""
 
         db.collection("companies")
-            .whereEqualTo("userID", auth.currentUser.uid)
+            .whereEqualTo("userID", auth.currentUser!!.uid)
             .get()
             .addOnSuccessListener { companies ->
                 val company = companies.firstOrNull()

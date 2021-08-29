@@ -26,7 +26,7 @@ class EditProfileActivity : AppCompatActivity() {
         confirmProfileBt.setOnClickListener {
             if (fullNameEt.text.toString().isNotEmpty() && birthdayEt.text.toString().isNotEmpty() && cityNameEt.text.toString().isNotEmpty() &&
                     cepEt.text.toString().isNotEmpty() && phoneContactEt.text.toString().isNotEmpty()) {
-                        val userID: String = auth.currentUser.uid
+                        val userID: String = auth.currentUser!!.uid
                         val documentReference: DocumentReference = db.collection("users").document(userID)
                         val user: User = User(
                                 name = intent.getStringExtra("name") ?: "",

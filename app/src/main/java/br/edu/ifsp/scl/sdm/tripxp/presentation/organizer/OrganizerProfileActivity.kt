@@ -21,7 +21,7 @@ class OrganizerProfileActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
-        userID = auth.currentUser.uid
+        userID = auth.currentUser!!.uid
         val companyId = intent.getStringExtra("companyID")
 
         if (companyId != null) {

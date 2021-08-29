@@ -11,15 +11,7 @@
         android:layout_height="wrap_content"
         android:theme="@style/Theme.TripXp.AppBarOverlay">
 
-        <TextView
-            android:id="@+id/eventTitleLb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:minHeight="?actionBarSize"
-            android:padding="@dimen/appbar_padding"
-            android:text="@string/app_name"
-            android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
+        <include layout="@layout/toolbar" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"

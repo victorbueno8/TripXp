@@ -21,7 +21,7 @@ class UserProfileActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
-        userID = auth.currentUser.uid
+        userID = auth.currentUser!!.uid
 
         val documentReference: DocumentReference = db.collection("users").document(userID)
         documentReference.get().addOnSuccessListener { documentSnapshot ->

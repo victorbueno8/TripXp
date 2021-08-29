@@ -47,7 +47,7 @@ class PaymentConfirmActivity : AppCompatActivity() {
 
         confirmPaymentBt.setOnClickListener { view ->
             val ticket = Ticket(
-                userID = auth.currentUser.uid,
+                userID = auth.currentUser!!.uid,
                 tripID = tripID,
                 tripName = tripTitleTv.text.toString(),
                 unitPrice = numFormat.parse(ticketPriceTv.text.toString()),
