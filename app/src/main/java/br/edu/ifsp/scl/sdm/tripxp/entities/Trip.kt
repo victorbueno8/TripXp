@@ -8,6 +8,7 @@ data class Trip(
         @get:Exclude
         var id: String = "",
         val companyID: String = "",
+        val eventImageUri: String = "",
         val name: String = "",
         val description: String = "",
         val eventCity: String = "",

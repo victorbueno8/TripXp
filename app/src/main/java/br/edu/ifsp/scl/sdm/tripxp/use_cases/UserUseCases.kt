@@ -10,7 +10,7 @@ class UserUseCases {
     private var auth: FirebaseAuth = FirebaseAuth.getInstance()
     private var db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
-    fun getUser(userID: String = auth.currentUser.uid, myCallback: (User) -> Unit) {
+    fun getUser(userID: String = auth.currentUser!!.uid, myCallback: (User) -> Unit) {
         val documentReference: DocumentReference = db.collection("users").document(userID)
         var user = User()
         documentReference.get()
