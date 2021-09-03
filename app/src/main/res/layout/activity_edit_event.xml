@@ -25,50 +25,42 @@
                 android:layout_height="match_parent">
 
                 <EditText
-                    android:id="@+id/horaInicioEtt"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:ems="10"
-                    android:hint="Horário Início"
-                    android:inputType="time"
-                    app:layout_constraintBottom_toBottomOf="@+id/dataInicioEtd"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/dataInicioEtd"
-                    app:layout_constraintTop_toTopOf="@+id/dataInicioEtd" />
-
-                <EditText
                     android:id="@+id/returnDateEt"
-                    android:layout_width="209dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginRight="4dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
                     android:ems="10"
-                    android:hint="Data de volta"
+                    android:hint="Data/Hora de volta"
                     android:inputType="date"
-                    app:layout_constraintEnd_toStartOf="@+id/returnHourEt"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/returnAddressEt" />
 
                 <EditText
                     android:id="@+id/meetingDateEt"
-                    android:layout_width="210dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginRight="4dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
                     android:ems="10"
-                    android:hint="Data Encontro"
-                    android:inputType="date"
-                    app:layout_constraintEnd_toStartOf="@+id/meetingHourEt"
+                    android:hint="Data/Hora Encontro"
+                    android:inputType="none"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/meetingAddressEt" />
 
@@ -119,17 +111,20 @@
 
                 <EditText
                     android:id="@+id/dataInicioEtd"
-                    android:layout_width="210dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginRight="4dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
                     android:ems="10"
-                    android:hint="Data de início"
-                    android:inputType="date"
-                    app:layout_constraintEnd_toStartOf="@+id/horaInicioEtt"
+                    android:hint="Data/Hora de início"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/eventLocationEt" />
 
@@ -165,22 +160,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/gatheringInfoLb" />
 
-                <EditText
-                    android:id="@+id/returnHourEt"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:ems="10"
-                    android:hint="Horário de volta"
-                    android:inputType="time"
-                    app:layout_constraintBottom_toBottomOf="@+id/returnDateEt"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/returnDateEt"
-                    app:layout_constraintTop_toTopOf="@+id/returnDateEt" />
-
                 <TextView
                     android:id="@+id/eventInfoLb"
                     android:layout_width="wrap_content"
@@ -211,34 +190,22 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/horaFinalEtt"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:ems="10"
-                    android:hint="Horário Final"
-                    android:inputType="time"
-                    app:layout_constraintBottom_toBottomOf="@+id/dataFinalEtd"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/dataFinalEtd"
-                    app:layout_constraintTop_toTopOf="@+id/dataFinalEtd" />
-
-                <EditText
                     android:id="@+id/dataFinalEtd"
-                    android:layout_width="210dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginRight="4dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
                     android:ems="10"
-                    android:hint="Data Final"
+                    android:hint="Data/Hora Final"
                     android:inputType="date"
-                    app:layout_constraintEnd_toStartOf="@+id/horaFinalEtt"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/dataInicioEtd" />
 
@@ -291,22 +258,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/dataFinalEtd" />
 
                 <EditText
-                    android:id="@+id/meetingHourEt"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:ems="10"
-                    android:hint="Horário Encontro"
-                    android:inputType="time"
-                    app:layout_constraintBottom_toBottomOf="@+id/meetingDateEt"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/meetingDateEt"
-                    app:layout_constraintTop_toTopOf="@+id/meetingDateEt" />
-
-                <EditText
                     android:id="@+id/returnObservationsEt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -347,7 +298,7 @@
                     android:layout_marginEnd="16dp"
                     android:layout_marginRight="16dp"
                     android:ems="10"
-                    android:hint="Cidade de destino"
+                    android:hint="Cidade"
                     android:inputType="textPersonName"
                     app:layout_constraintBottom_toBottomOf="@+id/eventLocationEt"
                     app:layout_constraintEnd_toEndOf="parent"

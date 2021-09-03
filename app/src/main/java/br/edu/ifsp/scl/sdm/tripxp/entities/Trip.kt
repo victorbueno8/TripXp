@@ -1,5 +1,6 @@
 package br.edu.ifsp.scl.sdm.tripxp.entities
 
+import br.edu.ifsp.scl.sdm.tripxp.util.DateFormat
 import com.google.firebase.firestore.Exclude
 import java.text.SimpleDateFormat
 import java.util.*
@@ -7,39 +8,36 @@ import java.util.*
 data class Trip(
         @get:Exclude
         var id: String = "",
-        val companyID: String = "",
-        val eventImageUri: String = "",
-        val name: String = "",
-        val description: String = "",
-        val eventCity: String = "",
-        val eventAddress: String = "",
-        val eventStartDate: String = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Calendar.getInstance().time),
-        val eventStartTime: String = SimpleDateFormat("HH:mm", Locale.getDefault()).format(Calendar.getInstance().time),
-        val eventEndDate: String = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Calendar.getInstance().time),
-        val eventEndTime: String = SimpleDateFormat("HH:mm", Locale.getDefault()).format(Calendar.getInstance().time),
-        val meetingAddress: String = "",
-        val meetingCity: String = "",
-        val meetingDate: String = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Calendar.getInstance().time),
-        val meetingTime: String = SimpleDateFormat("HH:mm", Locale.getDefault()).format(Calendar.getInstance().time),
-        val meetingObservation: String = "",
-        val returnAddress: String = "",
-        val returnCity: String = "",
-        val returnDate: String = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Calendar.getInstance().time),
-        val returnTime: String = SimpleDateFormat("HH:mm", Locale.getDefault()).format(Calendar.getInstance().time),
-        val returnObservation: String = "",
-        val terms: String = "",
-        val ticketPrice: Double = 0.00,
-        val ticketQtd: Int = 1,
+        var companyID: String = "",
+        var userID: String = "",
+        var eventImageUri: String = "",
+        var name: String = "",
+        var description: String = "",
+        var eventCity: String = "",
+        var eventAddress: String = "",
+        var eventStart: Date = Date(),
+        var eventEnd: Date = Date(),
+        var meetingAddress: String = "",
+        var meetingCity: String = "",
+        var meetingTime: Date = Date(),
+        var meetingObservation: String = "",
+        var returnAddress: String = "",
+        var returnCity: String = "",
+        var returnTime: Date = Date(),
+        var returnObservation: String = "",
+        var terms: String = "",
+        var ticketPrice: Double = 0.00,
+        var ticketQtd: Int = 1,
         @get:Exclude @set:Exclude
         var ticketID: String? = null
         ) {
 
         fun getStartEventDateTime(): String {
-                return  this.eventStartDate + " " + this.eventStartTime
+                return DateFormat("dd/MM/yyyy HH:mm").toString(this.eventStart)
         }
 
         fun getEndEventDateTime(): String {
-                return  this.eventEndDate + " " + this.eventEndTime
+                return DateFormat("dd/MM/yyyy HH:mm").toString(this.eventEnd)
         }
 
         fun getEventLocation(): String {
@@ -47,7 +45,7 @@ data class Trip(
         }
 
         fun getMeetingDateTime() : String {
-                return this.meetingDate + " " + this.meetingTime
+                return DateFormat("dd/MM/yyyy HH:mm").toString(this.meetingTime)
         }
 
         fun getMeetingLocation() : String {
@@ -55,7 +53,7 @@ data class Trip(
         }
 
         fun returnDateTime() : String {
-                return this.returnDate + " " + this.returnTime
+                return DateFormat("dd/MM/yyyy HH:mm").toString(this.returnTime)
         }
 
         fun getReturnLocation() : String {
