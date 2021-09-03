@@ -12,7 +12,7 @@ class DateFormat(format: String) {
         return formatter.format(date)
     }
 
-    fun toDate(string: String): Date? {
+    fun toDate(string: String): Date {
         return formatter.parse(string)
     }
 }

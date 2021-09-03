@@ -47,8 +47,8 @@ class MyCompanyEventsFragment : Fragment(), EventListItemAdapter.OnItemClickList
         return inflater.inflate(R.layout.fragment_my_trips, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onResume() {
+        super.onResume()
         tripListRv.apply {
             // set a LinearLayoutManager to handle Android
             // RecyclerView behavior
@@ -68,6 +68,7 @@ class MyCompanyEventsFragment : Fragment(), EventListItemAdapter.OnItemClickList
                             .get()
                             .addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
+                                    tripList.clear()
                                     task.result?.forEach { trip ->
                                         tripList.add(trip.toObject(Trip::class.java).apply { id = trip.id })
                                         (adapter as EventListItemAdapter).notifyDataSetChanged()

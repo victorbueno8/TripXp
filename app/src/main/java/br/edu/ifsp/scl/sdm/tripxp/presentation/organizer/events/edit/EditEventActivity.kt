@@ -5,12 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.entities.Trip
+import br.edu.ifsp.scl.sdm.tripxp.util.DateFormat
+import br.edu.ifsp.scl.sdm.tripxp.util.DatePicker
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_edit_event.*
-import kotlinx.android.synthetic.main.activity_edit_event_terms.*
 
 class EditEventActivity : AppCompatActivity() {
     private lateinit var eventID: String
@@ -27,65 +28,66 @@ class EditEventActivity : AppCompatActivity() {
 
         eventID = intent.getStringExtra("eventID") ?: ""
         companyID = intent.getStringExtra("company") ?: ""
-        val documentReference: DocumentReference = db.collection("trips").document(eventID)
-        documentReference.get().addOnSuccessListener { snapshot ->
-            val event = snapshot.toObject(Trip::class.java)
-            if (event != null) {
-                companyID = event.companyID
-                tripNameEt.setText(event.name)
-                tripDescriptionEt.setText(event.description)
-                eventCityEt.setText(event.eventCity)
-                eventLocationEt.setText(event.eventAddress)
-                dataInicioEtd.setText(event.eventStartDate)
-                horaInicioEtt.setText(event.eventStartTime)
-                dataFinalEtd.setText(event.eventEndDate)
-                horaFinalEtt.setText(event.eventEndTime)
-                meetingAddressEt.setText(event.meetingAddress)
-                meetingCityEt.setText(event.meetingCity)
-                meetingDateEt.setText(event.meetingDate)
-                meetingHourEt.setText(event.meetingTime)
-                meetingObservationsEt.setText(event.meetingObservation)
-                returnAddressEt.setText(event.returnAddress)
-                returnCityEt.setText(event.returnCity)
-                returnDateEt.setText(event.returnDate)
-                returnHourEt.setText(event.returnTime)
-                returnObservationsEt.setText(event.returnObservation)
+        if (eventID.isNotEmpty()) {
+            val documentReference: DocumentReference = db.collection("trips").document(eventID)
+            documentReference.get().addOnSuccessListener { snapshot ->
+                val event = snapshot.toObject(Trip::class.java)
+                if (event != null) {
+                    companyID = event.companyID
+                    tripNameEt.setText(event.name)
+                    tripDescriptionEt.setText(event.description)
+                    eventCityEt.setText(event.eventCity)
+                    eventLocationEt.setText(event.eventAddress)
+                    dataInicioEtd.setText(DateFormat("dd/MM/yyyy HH:mm").toString(event.eventStart))
+                    dataFinalEtd.setText(DateFormat("dd/MM/yyyy HH:mm").toString(event.eventEnd))
+                    meetingAddressEt.setText(event.meetingAddress)
+                    meetingCityEt.setText(event.meetingCity)
+                    meetingDateEt.setText(DateFormat("dd/MM/yyyy HH:mm").toString(event.meetingTime))
+                    meetingObservationsEt.setText(event.meetingObservation)
+                    returnAddressEt.setText(event.returnAddress)
+                    returnCityEt.setText(event.returnCity)
+                    returnDateEt.setText(DateFormat("dd/MM/yyyy HH:mm").toString(event.returnTime))
+                    returnObservationsEt.setText(event.returnObservation)
+                }
             }
         }
 
+        dataInicioEtd.setOnClickListener {
+            val picker = DatePicker(this, dataInicioEtd)
+            picker.pickDate()
+        }
+
+        dataFinalEtd.setOnClickListener {
+            DatePicker(this, dataFinalEtd).pickDate()
+        }
+
+        meetingDateEt.setOnClickListener {
+            DatePicker(this, meetingDateEt).pickDate()
+        }
+
+        returnDateEt.setOnClickListener {
+            DatePicker(this, returnDateEt).pickDate()
+        }
+
         saveExcursionBt.setOnClickListener { view ->
-            val trip = Trip(
-                companyID = companyID,
-                name = tripNameEt.text.toString(),
-                description = tripDescriptionEt.text.toString(),
-                eventCity = eventCityEt.text.toString(),
-                eventAddress = eventLocationEt.text.toString(),
-                eventStartDate = dataInicioEtd.text.toString(),
-                eventStartTime = horaInicioEtt.text.toString(),
-                eventEndDate = dataFinalEtd.text.toString(),
-                eventEndTime = horaFinalEtt.text.toString(),
-                meetingAddress = meetingAddressEt.text.toString(),
-                meetingCity = meetingCityEt.text.toString(),
-                meetingDate = meetingDateEt.text.toString(),
-                meetingTime = meetingHourEt.text.toString(),
-                meetingObservation = meetingObservationsEt.text.toString(),
-                returnAddress = returnAddressEt.text.toString(),
-                returnCity = returnCityEt.text.toString(),
-                returnDate = returnDateEt.text.toString(),
-                returnTime = returnHourEt.text.toString(),
-                returnObservation = returnObservationsEt.text.toString()
-            )
+
             if (eventID.isNotEmpty()) {
-                db.collection("trips").document(eventID)
-                    .set(trip)
-                    .addOnSuccessListener { document ->
-                        Snackbar.make(view, "Viagem atualizada!", Snackbar.LENGTH_LONG).show()
-                        finish()
-                    }
-                    .addOnFailureListener{ e ->
-                        Snackbar.make(view, "Erro: " + e.message, Snackbar.LENGTH_LONG).show()
-                    }
+                val query = db.collection("trips").document(eventID)
+                query.get().addOnSuccessListener { snapshot ->
+                    val trip = setTrip(snapshot.toObject(Trip::class.java))
+                    db.collection("trips").document(eventID)
+                        .set(trip)
+                        .addOnSuccessListener { document ->
+                            Snackbar.make(view, "Viagem atualizada!", Snackbar.LENGTH_LONG).show()
+                            finish()
+                        }
+                        .addOnFailureListener{ e ->
+                            Snackbar.make(view, "Erro: " + e.message, Snackbar.LENGTH_LONG).show()
+                        }
+                }
+
             } else {
+                val trip = setTrip(null)
                 db.collection("trips")
                     .add(trip)
                     .addOnSuccessListener { document ->
@@ -100,5 +102,36 @@ class EditEventActivity : AppCompatActivity() {
             }
 
         }
+    }
+
+    private fun setTrip(selectedTrip: Trip?) : Trip {
+        val trip: Trip = selectedTrip ?: Trip()
+
+        trip.companyID = companyID
+        trip.userID = auth.currentUser!!.uid
+        trip.name = tripNameEt.text.toString()
+        trip.description = tripDescriptionEt.text.toString()
+        trip.eventCity = eventCityEt.text.toString()
+        trip.eventAddress = eventLocationEt.text.toString()
+        trip.meetingAddress = meetingAddressEt.text.toString()
+        trip.meetingCity = meetingCityEt.text.toString()
+        trip.meetingObservation = meetingObservationsEt.text.toString()
+        trip.returnAddress = returnAddressEt.text.toString()
+        trip.returnCity = returnCityEt.text.toString()
+        trip.returnObservation = returnObservationsEt.text.toString()
+        if (dataInicioEtd.text.toString().isNotEmpty()) {
+            trip.eventStart = DateFormat("dd/MM/yyyy HH:mm").toDate(dataInicioEtd.text.toString())
+        }
+        if (dataFinalEtd.text.toString().isNotEmpty()) {
+            trip.eventEnd = DateFormat("dd/MM/yyyy HH:mm").toDate(dataFinalEtd.text.toString())
+        }
+        if (meetingDateEt.text.toString().isNotEmpty()) {
+            trip.meetingTime = DateFormat("dd/MM/yyyy HH:mm").toDate(meetingDateEt.text.toString())
+        }
+        if (returnDateEt.text.toString().isNotEmpty()) {
+            trip.returnTime = DateFormat("dd/MM/yyyy HH:mm").toDate(returnDateEt.text.toString())
+        }
+
+        return trip
     }
 }

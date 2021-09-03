@@ -1,5 +1,6 @@
 package br.edu.ifsp.scl.sdm.tripxp.presentation.mytrips
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -52,6 +53,13 @@ class MyTripsFragment : Fragment(), EventListItemAdapter.OnItemClickListener {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_my_trips, container, false)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (tripListRv.adapter != null) {
+            tripListRv.adapter!!.notifyDataSetChanged()
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
