@@ -66,7 +66,7 @@
         app:layout_constraintTop_toBottomOf="@+id/avaliableTicketsLb" />
 
     <androidx.cardview.widget.CardView
-        android:layout_width="409dp"
+        android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"

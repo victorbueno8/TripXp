@@ -16,6 +16,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_my_trips.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -57,19 +59,10 @@ class MyTripsFragment : Fragment(), EventListItemAdapter.OnItemClickListener {
 
     override fun onResume() {
         super.onResume()
-        if (tripListRv.adapter != null) {
-            tripListRv.adapter!!.notifyDataSetChanged()
-        }
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         tripListRv.apply {
             // set a LinearLayoutManager to handle Android
             // RecyclerView behavior
             layoutManager = LinearLayoutManager(activity)
-            // set the custom adapter to the RecyclerView
-            adapter = EventListItemAdapter(tripList, this@MyTripsFragment)
 
             db.collectionGroup("tickets")
                 .whereEqualTo("userID", auth.currentUser!!.uid)
@@ -81,20 +74,30 @@ class MyTripsFragment : Fragment(), EventListItemAdapter.OnItemClickListener {
                     if (task.isSuccessful) {
                         val docs = task.result?.documents
                         if (docs != null) {
+                            tripList.clear()
                             for (snapshot: DocumentSnapshot in docs) {
                                 snapshot.reference.parent.parent?.let {
                                     it.get().addOnSuccessListener { ok ->
                                         val trip = ok.toObject(Trip::class.java).apply {
                                             this?.id = ok.id
                                             this?.ticketID = snapshot.id
+                                            this?.ticketJoinDate = snapshot.getDate("paymentDate")
                                         }
                                         if (trip != null) {
                                             tripList.add(trip)
                                         }
-                                        (adapter as EventListItemAdapter).notifyDataSetChanged()
+                                        if (sectionNumber == 1) {
+                                            tripList.sortByDescending { t -> t.ticketJoinDate }
+                                        } else {
+                                            tripList = ArrayList(tripList.filter{ trip -> trip.meetingTime > Date() })
+                                            tripList.sortBy { t -> t.meetingTime }
+                                        }
+                                        // set the custom adapter to the RecyclerView
+                                        adapter = EventListItemAdapter(tripList, this@MyTripsFragment)
                                     }
                                 }
                             }
+
                         }
                     }
                 }

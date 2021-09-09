@@ -13,6 +13,6 @@ data class Ticket(
     val unitPrice: Double = 0.00,
     val qtd: Int = 1,
     val paymentMethod: String = "Crédito",
-    val paymentDate: String = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Calendar.getInstance().time),
+    val paymentDate: Date = Date(),
     val total: Double = 0.00
 )

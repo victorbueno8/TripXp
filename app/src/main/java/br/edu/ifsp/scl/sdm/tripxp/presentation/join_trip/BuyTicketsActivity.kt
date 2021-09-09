@@ -10,6 +10,7 @@ import br.edu.ifsp.scl.sdm.tripxp.util.NumberFormat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_buy_tickets.*
 
 class BuyTicketsActivity : AppCompatActivity() {
@@ -31,11 +32,14 @@ class BuyTicketsActivity : AppCompatActivity() {
                 .addOnSuccessListener { snapshot ->
                     val event = snapshot.toObject(Trip::class.java)
                     if (event != null) {
+                        if (event.eventImageUri.isNotEmpty()) {
+                            Picasso.get().load(event.eventImageUri).into(tripImageIv2)
+                        }
                         val price = event.ticketPrice
                         unitPriceTv.text = "R$ ${numFormatter.format(price)}";
                         var tickets = 1
                         val available = event.ticketQtd
-                        avaliableTicketsLb.text = available.toString()
+                        numberAvailableTicketsTv.text = available.toString()
                         var total = price
                         totalPaymentTv2.text = "R$ ${numFormatter.format(total)}";
 
