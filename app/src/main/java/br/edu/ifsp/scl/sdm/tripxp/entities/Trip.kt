@@ -28,8 +28,12 @@ data class Trip(
         var terms: String = "",
         var ticketPrice: Double = 0.00,
         var ticketQtd: Int = 1,
+        val createdAt: Date = Date(),
+        val updatedAt: Date = Date(),
         @get:Exclude @set:Exclude
-        var ticketID: String? = null
+        var ticketID: String? = null,
+        @get:Exclude @set:Exclude
+        var ticketJoinDate: Date? = null
         ) {
 
         fun getStartEventDateTime(): String {

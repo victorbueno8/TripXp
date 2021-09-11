@@ -17,10 +17,12 @@ class ListTrips {
             .get()
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    val trips = ArrayList<Trip>()
+                    var trips = ArrayList<Trip>()
                     task.result?.forEach { trip ->
                         trips.add(trip.toObject(Trip::class.java).apply { id = trip.id })
                     }
+                    trips = ArrayList(trips.filter{ trip -> trip.meetingTime > Date() })
+                    trips.sortBy { t -> t.meetingTime }
                     myCallback(trips)
                 }
             }

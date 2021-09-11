@@ -1,7 +1,9 @@
 package br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.events
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
@@ -13,7 +15,11 @@ import br.edu.ifsp.scl.sdm.tripxp.presentation.event.EventActivity
 import br.edu.ifsp.scl.sdm.tripxp.presentation.mytrips.EventListItemAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
+import kotlinx.android.synthetic.main.activity_manage_events.*
 import kotlinx.android.synthetic.main.fragment_my_trips.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 private const val ARG_SECTION_NUMBER = "section_number"
 /**
@@ -35,7 +41,6 @@ class MyCompanyEventsFragment : Fragment(), EventListItemAdapter.OnItemClickList
 
         arguments?.let {
             sectionNumber = it.getInt(ARG_SECTION_NUMBER)
-            // tripList = it.get(ARG_TRIP_LIST)
         }
     }
 
@@ -53,8 +58,6 @@ class MyCompanyEventsFragment : Fragment(), EventListItemAdapter.OnItemClickList
             // set a LinearLayoutManager to handle Android
             // RecyclerView behavior
             layoutManager = LinearLayoutManager(activity)
-            // set the custom adapter to the RecyclerView
-            adapter = EventListItemAdapter(tripList, this@MyCompanyEventsFragment)
 
             db.collection("companies")
                 .whereEqualTo("userID", auth.currentUser!!.uid)
@@ -71,8 +74,15 @@ class MyCompanyEventsFragment : Fragment(), EventListItemAdapter.OnItemClickList
                                     tripList.clear()
                                     task.result?.forEach { trip ->
                                         tripList.add(trip.toObject(Trip::class.java).apply { id = trip.id })
-                                        (adapter as EventListItemAdapter).notifyDataSetChanged()
                                     }
+                                    if (sectionNumber == 1) {
+                                        tripList.sortByDescending { t -> t.createdAt }
+                                    } else {
+                                        tripList = ArrayList(tripList.filter{ trip -> trip.meetingTime > Date() })
+                                        tripList.sortBy { t -> t.meetingTime }
+                                    }
+                                    // set the custom adapter to the RecyclerView
+                                    adapter = EventListItemAdapter(tripList, this@MyCompanyEventsFragment)
                                 }
                             }
                     }

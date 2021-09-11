@@ -9,6 +9,7 @@ import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.entities.Ticket
 import br.edu.ifsp.scl.sdm.tripxp.presentation.EditProfileActivity
 import br.edu.ifsp.scl.sdm.tripxp.use_cases.TripUseCases
+import br.edu.ifsp.scl.sdm.tripxp.util.DateFormat
 import br.edu.ifsp.scl.sdm.tripxp.util.NumberFormat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -31,7 +32,7 @@ class PaymentConfirmActivity : AppCompatActivity() {
 
         val tripID = intent.getStringExtra("eventID") ?: ""
         TripUseCases().getTrip(tripID) {trip ->
-            tripTitleTv.text = trip.name.toUpperCase(Locale.ROOT)
+            tripTitleTv.text = trip.name.uppercase(Locale.ROOT)
             ticketPriceTv.text = "R$ ${numFormat.format(trip.ticketPrice)}"
             db.collection("trips").document(tripID)
                 .update("ticketQtd",trip.ticketQtd - ticketQtdTv.text.toString().toInt())
@@ -40,7 +41,7 @@ class PaymentConfirmActivity : AppCompatActivity() {
         ticketQtdTv.text = qtd.toString()
         val acceptedTerms = intent.getBooleanExtra("acceptedTerms", true)
 
-        paymentDateTv.text = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Calendar.getInstance().time)
+        paymentDateTv.text = DateFormat("dd/MM/yyyy").toString(Date())
 
         val total = intent.getDoubleExtra("total", 0.0)
         totalPaymentTv.text = "R$ ${numFormat.format(total)}"
@@ -53,7 +54,6 @@ class PaymentConfirmActivity : AppCompatActivity() {
                 unitPrice = numFormat.parse(ticketPriceTv.text.toString()),
                 qtd = ticketQtdTv.text.toString().toInt(),
                 paymentMethod = paymentMethodTv.text.toString(),
-                paymentDate = paymentDateTv.text.toString(),
                 total = numFormat.parse(totalPaymentTv.text.toString())
             )
             db.collection("trips").document(tripID).collection("tickets")

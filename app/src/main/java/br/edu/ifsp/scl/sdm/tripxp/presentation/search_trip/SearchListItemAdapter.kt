@@ -3,10 +3,12 @@ package br.edu.ifsp.scl.sdm.tripxp.presentation.search_trip
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.entities.Trip
+import com.squareup.picasso.Picasso
 
 class SearchListItemAdapter(
     private val tripsList: ArrayList<Trip>,
@@ -17,7 +19,7 @@ class SearchListItemAdapter(
         val tripName: TextView = view.findViewById(R.id.postUserNameTv)
         val tripDateTime: TextView = view.findViewById(R.id.postCreateDateTv)
         val tripDestination : TextView = view.findViewById(R.id.tripDestinationTv)
-        // val tripImage : ImageView = view.findViewById(R.id.tripImageIv)
+        val tripImage : ImageView = view.findViewById(R.id.tripImageIv)
 
         init {
             view.setOnClickListener(this)
@@ -47,7 +49,10 @@ class SearchListItemAdapter(
         viewHolder.tripName.text = trip.name
         viewHolder.tripDateTime.text = trip.getMeetingDateTime()
         viewHolder.tripDestination.text = trip.eventCity
-        // viewHolder.tripImage.setImageResource(R.drawable.ic_launcher_background)
+
+        if (trip.eventImageUri.isNotEmpty()) {
+            Picasso.get().load(trip.eventImageUri).into(viewHolder.tripImage)
+        }
     }
 
     // Return the size of your dataset (invoked by the layout manager)

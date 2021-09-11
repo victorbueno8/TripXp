@@ -15,6 +15,8 @@ import br.edu.ifsp.scl.sdm.tripxp.entities.Trip
 import br.edu.ifsp.scl.sdm.tripxp.presentation.LoginActivity
 import br.edu.ifsp.scl.sdm.tripxp.presentation.UserProfileActivity
 import br.edu.ifsp.scl.sdm.tripxp.presentation.join_trip.BuyTicketsActivity
+import br.edu.ifsp.scl.sdm.tripxp.presentation.mytrips.MyTripsActivity
+import br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.events.ManageEventsActivity
 import br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.events.edit.EditEventActivity
 import br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.events.edit.EditEventImageActivity
 import br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.events.edit.EditEventTermsActivity
@@ -142,6 +144,19 @@ class EventActivity : AppCompatActivity() {
         }
         else -> {
             super.onOptionsItemSelected(item)
+        }
+    }
+
+    override fun onBackPressed() {
+        UserUseCases().getUser { user ->
+            val tripsPage = if (user.userType == "organizer") {
+                Intent(this, ManageEventsActivity::class.java)
+            } else {
+                Intent(this, MyTripsActivity::class.java)
+            }
+            tripsPage.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(tripsPage)
+            finish()
         }
     }
 }
