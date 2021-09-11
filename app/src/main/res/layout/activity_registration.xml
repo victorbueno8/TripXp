@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.RegistrationActivity">
+
+    <TextView
+        android:id="@+id/ouTv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/ou"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/continuarBt"
+        tools:text="ou" />
+
+    <EditText
+        android:id="@+id/registerEmailEt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerNameEt"
+        android:autofillHints="@string/email" />
+
+    <EditText
+        android:id="@+id/registerSenhaEt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:ems="10"
+        android:hint="@string/senha"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerEmailEt"
+        android:autofillHints="@string/senha" />
+
+    <EditText
+        android:id="@+id/registerConfirmSenhaEt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:ems="10"
+        android:hint="@string/confirmar_senha"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerSenhaEt"
+        android:autofillHints="@string/confirmar_senha" />
+
+    <EditText
+        android:id="@+id/registerNameEt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:ems="10"
+        android:hint="@string/nome"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="@string/nome" />
+
+    <Button
+        android:id="@+id/continuarBt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:text="@string/continuar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerConfirmSenhaEt" />
+
+    <Button
+        android:id="@+id/registerOrganizadorBt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:text="@string/organiza_excurs_es_clique_aqui"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/purple_700"
+        android:textStyle="bold"
+        app:backgroundTint="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ouTv2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

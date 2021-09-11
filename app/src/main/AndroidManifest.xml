@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.edu.ifsp.scl.sdm.tripxp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,11 +11,70 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TripXp">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".presentation.organizer.events.edit.EditEventImageActivity"
+            android:exported="true" />
+        <activity
+            android:name=".presentation.organizer.events.edit.EditEventTicketsActivity"
+            android:label="Tickets e Lugares da Viagem" />
+        <activity
+            android:name=".presentation.organizer.events.edit.EditEventTermsActivity"
+            android:label="Termos e Regras da Viagem" />
+        <activity android:name=".presentation.join_trip.BuyTicketsActivity" />
+        <activity android:name=".presentation.join_trip.PaymentConfirmActivity" />
+        <activity
+            android:name=".presentation.join_trip.JoinTripConfirmActivity"
+            android:theme="@style/Theme.TripXp.NoActionBar" />
+        <activity
+            android:name=".presentation.organizer.events.ManageEventsActivity"
+            android:label="@string/title_activity_manage_events"
+            android:theme="@style/Theme.TripXp.NoActionBar" />
+        <activity
+            android:name=".presentation.organizer.EditOrganizerProfileActivity"
+            android:label="Minha Empresa de Excurção" />
+        <activity
+            android:name=".presentation.EditProfileActivity"
+            android:label="Meu Perfil" />
+        <activity
+            android:name=".presentation.mytrips.MyTripsActivity"
+            android:label="Minhas Excursões"
+            android:theme="@style/Theme.TripXp.NoActionBar" />
+        <activity
+            android:name=".presentation.organizer.events.edit.EditEventActivity"
+            android:label="Criação da Excurção" />
+        <activity
+            android:name=".presentation.join_trip.PaymentMethodActivity"
+            android:label="Método de Pagamento" />
+        <activity
+            android:name=".presentation.join_trip.TermsActivity"
+            android:label="Termos e Regras da Excursão" />
+        <activity android:name=".presentation.UserProfileActivity" />
+        <activity android:name=".presentation.organizer.OrganizerProfileActivity" />
+        <activity
+            android:name=".presentation.event.EventActivity"
+            android:label="@string/title_activity_event"
+            android:theme="@style/Theme.TripXp.NoActionBar" />
+        <activity
+            android:name=".presentation.search_trip.SearchTripsActivity"
+            android:label="Buscar Excursões" />
+        <activity
+            android:name=".presentation.RegistrationActivity"
+            android:label="Registrar-se" />
+        <activity
+            android:name=".presentation.LoginActivity"
+            android:label="Login" />
+        <activity android:name=".presentation.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="Main Menu">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
     </application>

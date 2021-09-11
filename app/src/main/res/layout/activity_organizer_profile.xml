@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.organizer.OrganizerProfileActivity">
+
+    <ImageView
+        android:id="@+id/companyImageIv"
+        android:layout_width="0dp"
+        android:layout_height="155dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/backgrounds/scenic" />
+
+    <ImageView
+        android:id="@+id/postUserAvatarIv"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/companyImageIv"
+        app:srcCompat="@mipmap/ic_avatar_placeholder"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/organizerNameTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:text="Nome do organizador resposável"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/postUserAvatarIv"
+        app:layout_constraintTop_toTopOf="@+id/postUserAvatarIv" />
+
+    <TextView
+        android:id="@+id/organizerCityTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Cidade - ES"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/postUserAvatarIv"
+        app:layout_constraintTop_toBottomOf="@+id/organizerNameTv" />
+
+    <TextView
+        android:id="@+id/evaluationsLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Avaliação"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailLb" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/evaluationsLb"
+        app:layout_constraintTop_toBottomOf="@+id/evaluationsLb" />
+
+    <TextView
+        android:id="@+id/contactLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Contatos"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/postUserAvatarIv" />
+
+    <TextView
+        android:id="@+id/phoneLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Telefone:"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/contactLb"
+        app:layout_constraintTop_toBottomOf="@+id/contactLb" />
+
+    <TextView
+        android:id="@+id/emailLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Email:"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/phoneLb"
+        app:layout_constraintTop_toBottomOf="@+id/phoneLb" />
+
+    <Button
+        android:id="@+id/readEvaluationsBt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ver avaliações >>"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        app:backgroundTint="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="@+id/ratingBar"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+
+    <TextView
+        android:id="@+id/organizerPhoneNumberTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="2dp"
+        android:text="(xx) xxxxx-xxxx"
+        app:layout_constraintBottom_toBottomOf="@+id/phoneLb"
+        app:layout_constraintStart_toEndOf="@+id/phoneLb"
+        app:layout_constraintTop_toTopOf="@+id/phoneLb" />
+
+    <TextView
+        android:id="@+id/organizerEmailAddressTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="placeholder@email.com"
+        app:layout_constraintBottom_toBottomOf="@+id/emailLb"
+        app:layout_constraintStart_toEndOf="@+id/emailLb"
+        app:layout_constraintTop_toTopOf="@+id/emailLb" />
+</androidx.constraintlayout.widget.ConstraintLayout>

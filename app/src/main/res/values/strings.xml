@@ -1,3 +1,34 @@
 <resources>
     <string name="app_name">TripXp</string>
+    <string name="tripxp">TripXp</string>
+    <string name="email">email</string>
+    <string name="senha">senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="nome">nome</string>
+    <string name="confirmar_senha">confirmar senha</string>
+    <string name="continuar">Continuar</string>
+    <string name="inscreva_se">Inscreva-se</string>
+    <string name="ou">ou</string>
+    <string name="organiza_excurs_es_clique_aqui">Organiza Excursões? Clique aqui</string>
+    <string name="buscar_excursoes_fab">Buscar Excursões</string>
+    <string name="title_activity_event">Evento</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="title_activity_my_trips">Minhas Excursões</string>
+    <string name="title_activity_manage_events">Minhas Excursões</string>
+    <string name="tab_new_trips">Novos</string>
+    <string name="tab_coming_trips">Próximos</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="meu_perfil">Meu Perfil</string>
+    <string name="sair">Sair</string>
+    <string name="eventoLabel">Evento</string>
+    <string name="encontroLabel">Encontro</string>
+    <string name="finalLabel">Final:</string>
+    <string name="inicioLabel">Inicio:</string>
+    <string name="local_de_destino_label">Local de Destino</string>
+    <string name="title_activity_manage_event">Evento</string>
+    <string name="detalhes">Detalhes</string>
+    <string name="conversa">Conversa</string>
+    <string name="search_trip_hint">Digite a viagem, evento ou excursão</string>
+    <string name="title_activity_organize_event">Evento</string>
 </resources>
