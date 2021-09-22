@@ -53,16 +53,12 @@ class EventActivity : AppCompatActivity() {
         db = FirebaseFirestore.getInstance()
         eventID = intent.getStringExtra("eventID") ?: ""
 
-
         val sectionsPagerAdapter = SectionsPagerAdapter(this, eventID, supportFragmentManager)
         val viewPager: ViewPager = findViewById(R.id.view_pager)
         viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
-    }
-
-    override fun onResume() {
-        super.onResume()
+        viewPager.setCurrentItem(intent.getIntExtra("tab", 0))
 
         joinBt.visibility = View.GONE
         tabs.visibility = View.GONE
@@ -80,8 +76,9 @@ class EventActivity : AppCompatActivity() {
         val documentReference: DocumentReference = db.collection("trips").document(eventID)
         documentReference.get()
             .addOnSuccessListener { snapshot ->
-                val event = snapshot.toObject(Trip::class.java)
+                val event = snapshot.toObject(Trip::class.java)?.apply { id = snapshot.id }
                 if (event != null) {
+                    Log.d("OKAY", event.ticketPrice.toString())
                     this.toolbar.title = event.name
                     eventUnitPriceTv.text = "R$ ${NumberFormat().format(event.ticketPrice)}"
                     eventNumberAvailableTicketsTv.text = event.ticketQtd.toString()

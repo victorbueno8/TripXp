@@ -1,19 +1,20 @@
 package br.edu.ifsp.scl.sdm.tripxp.presentation.event.participants
 
 import android.graphics.Color
+import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.databinding.FragmentParticipantBinding
 import br.edu.ifsp.scl.sdm.tripxp.entities.User
+import br.edu.ifsp.scl.sdm.tripxp.presentation.mytrips.EventListItemAdapter
 
-/**
- * [RecyclerView.Adapter] that can display a [PlaceholderItem].
- * TODO: Replace the implementation with code for your data type.
- */
 class ParticipantsRecyclerViewAdapter(
-    private val values: List<User>
+    private val values: List<User>,
+    private val listener: OnItemClickListener
 ) : RecyclerView.Adapter<ParticipantsRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -41,10 +42,25 @@ class ParticipantsRecyclerViewAdapter(
 
     override fun getItemCount(): Int = values.size
 
+    interface OnItemClickListener {
+        fun onItemClick(position: Int)
+    }
+
     inner class ViewHolder(binding: FragmentParticipantBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+        RecyclerView.ViewHolder(binding.root), View.OnClickListener {
         val userName: TextView = binding.userNameTv
         val travelerType: TextView = binding.travelerTypeTv
+
+        init {
+            binding.root.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View?) {
+            val position = adapterPosition
+            if (position != RecyclerView.NO_POSITION) {
+                listener.onItemClick(position)
+            }
+        }
     }
 
 }
