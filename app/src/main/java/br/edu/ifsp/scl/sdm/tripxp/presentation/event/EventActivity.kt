@@ -78,7 +78,6 @@ class EventActivity : AppCompatActivity() {
             .addOnSuccessListener { snapshot ->
                 val event = snapshot.toObject(Trip::class.java)?.apply { id = snapshot.id }
                 if (event != null) {
-                    Log.d("OKAY", event.ticketPrice.toString())
                     this.toolbar.title = event.name
                     eventUnitPriceTv.text = "R$ ${NumberFormat().format(event.ticketPrice)}"
                     eventNumberAvailableTicketsTv.text = event.ticketQtd.toString()
