@@ -25,6 +25,18 @@ class TripUseCases {
             }
     }
 
+    fun getOrganizer(tripID: String, myCallback: (User?) -> Unit) {
+        val documentReference: DocumentReference = db.collection("trips").document(tripID)
+        documentReference.get().addOnSuccessListener { tripSnap ->
+            tripSnap.getString("userID")?.let {
+                db.collection("users").document(it).get().addOnSuccessListener { userSnap ->
+                    val user = userSnap.toObject(User::class.java)
+                    myCallback(user)
+                }
+            }
+        }
+    }
+
     fun getParticipants(tripID: String, myCallback: (ArrayList<User>) -> Unit) {
         val documentReference: DocumentReference = db.collection("trips").document(tripID)
         documentReference.collection("tickets").get()

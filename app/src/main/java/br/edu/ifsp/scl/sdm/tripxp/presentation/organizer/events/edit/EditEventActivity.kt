@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.entities.Trip
+import br.edu.ifsp.scl.sdm.tripxp.presentation.event.EventActivity
 import br.edu.ifsp.scl.sdm.tripxp.util.DateFormat
 import br.edu.ifsp.scl.sdm.tripxp.util.DatePicker
 import com.google.android.material.snackbar.Snackbar
@@ -79,7 +80,10 @@ class EditEventActivity : AppCompatActivity() {
                         .set(trip)
                         .addOnSuccessListener { document ->
                             Snackbar.make(view, "Viagem atualizada!", Snackbar.LENGTH_LONG).show()
-                            finish()
+                            val eventPage = Intent(this, EventActivity::class.java)
+                            eventPage.putExtra("eventID", eventID)
+                            eventPage.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                            startActivity(eventPage)
                         }
                         .addOnFailureListener{ e ->
                             Snackbar.make(view, "Erro: " + e.message, Snackbar.LENGTH_LONG).show()
