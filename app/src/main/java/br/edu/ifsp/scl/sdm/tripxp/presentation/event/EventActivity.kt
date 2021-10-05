@@ -2,22 +2,15 @@ package br.edu.ifsp.scl.sdm.tripxp.presentation.event
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
-import android.widget.Button
 import androidx.appcompat.widget.Toolbar
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.entities.Trip
-import br.edu.ifsp.scl.sdm.tripxp.presentation.LoginActivity
-import br.edu.ifsp.scl.sdm.tripxp.presentation.UserProfileActivity
-import br.edu.ifsp.scl.sdm.tripxp.presentation.event.participants.ParticipantsRecyclerViewAdapter
 import br.edu.ifsp.scl.sdm.tripxp.presentation.join_trip.BuyTicketsActivity
 import br.edu.ifsp.scl.sdm.tripxp.presentation.mytrips.MyTripsActivity
 import br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.events.ManageEventsActivity
@@ -34,7 +27,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_event.*
 import kotlinx.android.synthetic.main.fragment_event_detail.*
-import kotlinx.android.synthetic.main.fragment_participant_list.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 class EventActivity : AppCompatActivity() {

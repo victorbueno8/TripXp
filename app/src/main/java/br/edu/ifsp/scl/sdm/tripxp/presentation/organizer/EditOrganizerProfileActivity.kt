@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.entities.Company
-import br.edu.ifsp.scl.sdm.tripxp.presentation.EditProfileActivity
+import br.edu.ifsp.scl.sdm.tripxp.presentation.profile.EditProfileActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_edit_organizer_profile.*

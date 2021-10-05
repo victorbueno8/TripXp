@@ -2,22 +2,16 @@ package br.edu.ifsp.scl.sdm.tripxp.presentation.event.participants
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.edu.ifsp.scl.sdm.tripxp.R
-import br.edu.ifsp.scl.sdm.tripxp.entities.Trip
 import br.edu.ifsp.scl.sdm.tripxp.entities.User
-import br.edu.ifsp.scl.sdm.tripxp.presentation.UserProfileActivity
-import br.edu.ifsp.scl.sdm.tripxp.presentation.event.details.EventDetailFragment
-import br.edu.ifsp.scl.sdm.tripxp.presentation.mytrips.placeholder.PlaceholderContent
+import br.edu.ifsp.scl.sdm.tripxp.presentation.profile.UserProfileActivity
 import br.edu.ifsp.scl.sdm.tripxp.use_cases.TripUseCases
-import br.edu.ifsp.scl.sdm.tripxp.use_cases.UserUseCases
 
 /**
  * A fragment representing a list of Items.

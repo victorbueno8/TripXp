@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.edu.ifsp.scl.sdm.tripxp.databinding.FragmentPostItemBinding
@@ -15,11 +16,14 @@ import br.edu.ifsp.scl.sdm.tripxp.entities.PostComment
 
 import br.edu.ifsp.scl.sdm.tripxp.presentation.mytrips.placeholder.PlaceholderContent.PlaceholderItem
 import br.edu.ifsp.scl.sdm.tripxp.use_cases.UserUseCases
+import br.edu.ifsp.scl.sdm.tripxp.util.CircleTransform
 import br.edu.ifsp.scl.sdm.tripxp.util.DateFormat
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_edit_profile.*
 import kotlinx.android.synthetic.main.fragment_posts.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -57,6 +61,11 @@ class MyPostsRecyclerViewAdapter(
             .collection("comments")
         Log.d("BindPost",post.toString())
 
+        if (post.user.profileImageUri.isNotEmpty()) {
+            Picasso.get().load(post.user.profileImageUri)
+                .resize(120,120).transform(CircleTransform())
+                .into(holder.postUserAvatarIv)
+        }
         holder.postUserNameTv.text = post.user.name
         holder.postCreateDateTv.text = DateFormat("HH:mm dd/MM/yyyy").toString(post.createdAt)
         holder.postMessageTv.text = post.text
@@ -93,6 +102,7 @@ class MyPostsRecyclerViewAdapter(
 
     inner class ViewHolder(binding: FragmentPostItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        val postUserAvatarIv: ImageView = binding.postUserAvatarIv
         val postUserNameTv: TextView = binding.postUserNameTv
         val postCreateDateTv: TextView = binding.postCreateDateTv
         val postMessageTv: TextView = binding.postMessageTv
