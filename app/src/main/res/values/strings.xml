@@ -32,4 +32,5 @@
     <string name="search_trip_hint">Digite a viagem, evento ou excursão</string>
     <string name="title_activity_organize_event">Evento</string>
     <string name="participants">Viajantes</string>
+    <string name="escolher_foto">Escolher Foto</string>
 </resources>

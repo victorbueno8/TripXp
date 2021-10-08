@@ -7,16 +7,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.entities.Ticket
-import br.edu.ifsp.scl.sdm.tripxp.presentation.EditProfileActivity
 import br.edu.ifsp.scl.sdm.tripxp.use_cases.TripUseCases
 import br.edu.ifsp.scl.sdm.tripxp.util.DateFormat
 import br.edu.ifsp.scl.sdm.tripxp.util.NumberFormat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_payment_confirm.*
-import java.text.DecimalFormat
-import java.text.DecimalFormatSymbols
-import java.text.SimpleDateFormat
 import java.util.*
 
 class PaymentConfirmActivity : AppCompatActivity() {

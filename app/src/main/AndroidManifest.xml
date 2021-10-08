@@ -33,7 +33,7 @@
             android:name=".presentation.organizer.EditOrganizerProfileActivity"
             android:label="Minha Empresa de Excurção" />
         <activity
-            android:name=".presentation.EditProfileActivity"
+            android:name=".presentation.profile.EditProfileActivity"
             android:label="Meu Perfil" />
         <activity
             android:name=".presentation.mytrips.MyTripsActivity"
@@ -48,7 +48,7 @@
         <activity
             android:name=".presentation.join_trip.TermsActivity"
             android:label="Termos e Regras da Excursão" />
-        <activity android:name=".presentation.UserProfileActivity" />
+        <activity android:name=".presentation.profile.UserProfileActivity" />
         <activity android:name=".presentation.organizer.OrganizerProfileActivity" />
         <activity
             android:name=".presentation.event.EventActivity"

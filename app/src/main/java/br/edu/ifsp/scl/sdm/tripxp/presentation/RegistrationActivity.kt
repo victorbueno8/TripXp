@@ -7,6 +7,7 @@ import android.widget.Toast
 import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.presentation.mytrips.MyTripsActivity
 import br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.EditOrganizerProfileActivity
+import br.edu.ifsp.scl.sdm.tripxp.presentation.profile.EditProfileActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_registration.*
 
