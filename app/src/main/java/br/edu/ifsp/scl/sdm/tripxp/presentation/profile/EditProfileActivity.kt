@@ -13,8 +13,10 @@ import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.entities.User
 import br.edu.ifsp.scl.sdm.tripxp.presentation.event.EventActivity
 import br.edu.ifsp.scl.sdm.tripxp.presentation.mytrips.MyTripsActivity
+import br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.EditOrganizerProfileActivity
 import br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.events.edit.EditEventTermsActivity
 import br.edu.ifsp.scl.sdm.tripxp.util.CircleTransform
+import br.edu.ifsp.scl.sdm.tripxp.util.DateMask
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
@@ -100,6 +102,8 @@ class EditProfileActivity : AppCompatActivity() {
     }
 
     fun setupFields() {
+        birthdayEt.addTextChangedListener(DateMask.insert("##/##/####", birthdayEt))
+
         if(intent.getStringExtra("method") == "edit" && auth.currentUser != null) {
             val userID: String = auth.currentUser!!.uid
             val documentReference: DocumentReference = db.collection("users").document(userID)
