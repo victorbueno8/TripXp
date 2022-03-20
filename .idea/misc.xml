@@ -9,11 +9,13 @@
         <entry key="..\:/Users/Victor/AndroidStudioProjects/TripXp/app/src/main/res/layout/activity_edit_event_terms.xml" value="0.17798913043478262" />
         <entry key="..\:/Users/Victor/AndroidStudioProjects/TripXp/app/src/main/res/layout/activity_edit_profile.xml" value="0.25" />
         <entry key="..\:/Users/Victor/AndroidStudioProjects/TripXp/app/src/main/res/layout/activity_event.xml" value="0.15" />
+        <entry key="..\:/Users/Victor/AndroidStudioProjects/TripXp/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Users/Victor/AndroidStudioProjects/TripXp/app/src/main/res/layout/activity_manage_events.xml" value="0.15" />
         <entry key="..\:/Users/Victor/AndroidStudioProjects/TripXp/app/src/main/res/layout/activity_my_trips.xml" value="0.16304347826086957" />
         <entry key="..\:/Users/Victor/AndroidStudioProjects/TripXp/app/src/main/res/layout/activity_organizer_profile.xml" value="0.17481884057971014" />
         <entry key="..\:/Users/Victor/AndroidStudioProjects/TripXp/app/src/main/res/layout/activity_payment_confirm.xml" value="0.22" />
         <entry key="..\:/Users/Victor/AndroidStudioProjects/TripXp/app/src/main/res/layout/activity_registration.xml" value="0.1983695652173913" />
+        <entry key="..\:/Users/Victor/AndroidStudioProjects/TripXp/app/src/main/res/layout/activity_splash_screen.xml" value="0.17617753623188406" />
         <entry key="..\:/Users/Victor/AndroidStudioProjects/TripXp/app/src/main/res/layout/activity_user_profile.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Victor/AndroidStudioProjects/TripXp/app/src/main/res/layout/fragment_comment_item.xml" value="0.182518115942029" />
         <entry key="..\:/Users/Victor/AndroidStudioProjects/TripXp/app/src/main/res/layout/fragment_edit_event_image.xml" value="0.2006340579710145" />
@@ -26,6 +28,7 @@
         <entry key="..\:/Users/Victor/AndroidStudioProjects/TripXp/app/src/main/res/layout/toolbar.xml" value="0.1" />
         <entry key="..\:/Users/Victor/AndroidStudioProjects/TripXp/app/src/main/res/menu/manage_trip_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Victor/AndroidStudioProjects/TripXp/app/src/main/res/menu/user_menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Victor/AndroidStudioProjects/TripXp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.105" />
       </map>
     </option>
   </component>
