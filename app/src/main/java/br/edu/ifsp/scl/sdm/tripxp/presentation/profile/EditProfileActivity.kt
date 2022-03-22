@@ -11,10 +11,15 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.entities.User
+import br.edu.ifsp.scl.sdm.tripxp.presentation.LoginActivity
+import br.edu.ifsp.scl.sdm.tripxp.presentation.SplashScreenActivity
 import br.edu.ifsp.scl.sdm.tripxp.presentation.event.EventActivity
 import br.edu.ifsp.scl.sdm.tripxp.presentation.mytrips.MyTripsActivity
+import br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.EditOrganizerProfileActivity
+import br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.events.ManageEventsActivity
 import br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.events.edit.EditEventTermsActivity
 import br.edu.ifsp.scl.sdm.tripxp.util.CircleTransform
+import br.edu.ifsp.scl.sdm.tripxp.util.DateMask
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
@@ -79,8 +84,7 @@ class EditProfileActivity : AppCompatActivity() {
                                         uploadImage(view)
                                     } else {
                                         Snackbar.make(view, "Seu perfil foi salvo!", Snackbar.LENGTH_LONG).show()
-                                        val mainUserPage = Intent(this, MyTripsActivity::class.java)
-                                        startActivity(mainUserPage)
+                                        routeToMainUser()
                                     }
                                 }
                                 .addOnFailureListener { e ->
@@ -100,6 +104,8 @@ class EditProfileActivity : AppCompatActivity() {
     }
 
     fun setupFields() {
+        birthdayEt.addTextChangedListener(DateMask.insert("##/##/####", birthdayEt))
+
         if(intent.getStringExtra("method") == "edit" && auth.currentUser != null) {
             val userID: String = auth.currentUser!!.uid
             val documentReference: DocumentReference = db.collection("users").document(userID)
@@ -141,8 +147,7 @@ class EditProfileActivity : AppCompatActivity() {
                     documentReference.update("profileImageUri", uri.toString())
                         .addOnSuccessListener {
                             Snackbar.make(view, "Seu perfil foi salvo!", Snackbar.LENGTH_LONG).show()
-                            val mainUserPage = Intent(this, MyTripsActivity::class.java)
-                            startActivity(mainUserPage)
+                            routeToMainUser()
                         }
                         .addOnFailureListener{ e ->
                             Snackbar.make(view, "Erro: " + e.message, Snackbar.LENGTH_LONG).show()
@@ -150,6 +155,32 @@ class EditProfileActivity : AppCompatActivity() {
                 }
             }
     }
+
+    private fun routeToMainUser() {
+        val user = auth.currentUser
+        if (user != null) {
+            db.collection("users").document(user.uid)
+                .get().addOnSuccessListener { document ->
+                    val userType = document.get("userType")
+                    val intent = if (userType == "organizer") {
+                        Intent(this, ManageEventsActivity::class.java)
+                    } else {
+                        Intent(this, MyTripsActivity::class.java)
+                    }
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    startActivity(intent)
+
+                } .addOnFailureListener { e ->
+                    // Redirect to registration
+                    Toast.makeText(this, "Perfil de usuario não encontrado", Toast.LENGTH_LONG ).show()
+                    startActivity(Intent(this, LoginActivity::class.java))
+                }
+        } else {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()

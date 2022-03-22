@@ -111,7 +111,7 @@
         android:layout_marginRight="10dp"
         android:text="@string/organiza_excurs_es_clique_aqui"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/purple_700"
+        android:textColor="@color/black"
         android:textStyle="bold"
         app:backgroundTint="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
