@@ -18,10 +18,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
-            app:tabIndicatorColor="@color/white"
+            app:tabIndicatorColor="@color/black"
             app:tabIndicatorHeight="2sp"
-            app:tabSelectedTextColor="@color/white"
-            app:tabTextColor="@color/black" />
+            app:tabSelectedTextColor="@color/black"
+            app:tabTextColor="@color/gray" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager
