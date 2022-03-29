@@ -64,43 +64,76 @@ class MyTripsFragment : Fragment(), EventListItemAdapter.OnItemClickListener {
             // RecyclerView behavior
             layoutManager = LinearLayoutManager(activity)
 
-            db.collectionGroup("tickets")
-                .whereEqualTo("userID", auth.currentUser!!.uid)
+            db.collection("users").document(auth.currentUser!!.uid).collection("tickets")
                 .get()
+                .addOnSuccessListener { snapshot ->
+                    snapshot.forEach { ticketDoc ->
+                        db.collection("trips").document(ticketDoc["tripID"] as String)
+                            .get()
+                            .addOnSuccessListener { tripDoc ->
+                                val trip = tripDoc.toObject(Trip::class.java).apply {
+                                    this?.id = tripDoc.id
+                                    this?.ticketID = ticketDoc.id
+                                    this?.ticketJoinDate = ticketDoc.getDate("paymentDate")
+                                }
+                                if (trip != null) {
+                                    tripList.add(trip)
+                                }
+                                if (sectionNumber == 1) {
+                                    tripList.sortByDescending { t -> t.ticketJoinDate }
+                                } else {
+                                    tripList = ArrayList(tripList.filter{ trip -> trip.meetingTime > Date() })
+                                    tripList.sortBy { t -> t.meetingTime }
+                                }
+                                // set the custom adapter to the RecyclerView
+                                adapter = EventListItemAdapter(tripList, this@MyTripsFragment)
+                            }
+                            .addOnFailureListener { e ->
+                                Log.d("ERROR", e.message.toString())
+                            }
+                    }
+                }
                 .addOnFailureListener { e ->
                     Log.d("ERROR", e.message.toString())
                 }
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        val docs = task.result?.documents
-                        if (docs != null) {
-                            tripList.clear()
-                            for (snapshot: DocumentSnapshot in docs) {
-                                snapshot.reference.parent.parent?.let {
-                                    it.get().addOnSuccessListener { ok ->
-                                        val trip = ok.toObject(Trip::class.java).apply {
-                                            this?.id = ok.id
-                                            this?.ticketID = snapshot.id
-                                            this?.ticketJoinDate = snapshot.getDate("paymentDate")
-                                        }
-                                        if (trip != null) {
-                                            tripList.add(trip)
-                                        }
-                                        if (sectionNumber == 1) {
-                                            tripList.sortByDescending { t -> t.ticketJoinDate }
-                                        } else {
-                                            tripList = ArrayList(tripList.filter{ trip -> trip.meetingTime > Date() })
-                                            tripList.sortBy { t -> t.meetingTime }
-                                        }
-                                        // set the custom adapter to the RecyclerView
-                                        adapter = EventListItemAdapter(tripList, this@MyTripsFragment)
-                                    }
-                                }
-                            }
 
-                        }
-                    }
-                }
+//            db.collectionGroup("tickets")
+//                .whereEqualTo("userID", auth.currentUser!!.uid)
+//                .get()
+//                .addOnFailureListener { e ->
+//                    Log.d("ERROR", e.message.toString())
+//                }
+//                .addOnCompleteListener { task ->
+//                    if (task.isSuccessful) {
+//                        val docs = task.result?.documents
+//                        if (docs != null) {
+//                            tripList.clear()
+//                            for (snapshot: DocumentSnapshot in docs) {
+//                                snapshot.reference.parent.parent?.let {
+//                                    it.get().addOnSuccessListener { ok ->
+//                                        val trip = ok.toObject(Trip::class.java).apply {
+//                                            this?.id = ok.id
+//                                            this?.ticketID = snapshot.id
+//                                            this?.ticketJoinDate = snapshot.getDate("paymentDate")
+//                                        }
+//                                        if (trip != null) {
+//                                            tripList.add(trip)
+//                                        }
+//                                        if (sectionNumber == 1) {
+//                                            tripList.sortByDescending { t -> t.ticketJoinDate }
+//                                        } else {
+//                                            tripList = ArrayList(tripList.filter{ trip -> trip.meetingTime > Date() })
+//                                            tripList.sortBy { t -> t.meetingTime }
+//                                        }
+//                                        // set the custom adapter to the RecyclerView
+//                                        adapter = EventListItemAdapter(tripList, this@MyTripsFragment)
+//                                    }
+//                                }
+//                            }
+//
+//                        }
+//                    }
+//                }
         }
     }
 
