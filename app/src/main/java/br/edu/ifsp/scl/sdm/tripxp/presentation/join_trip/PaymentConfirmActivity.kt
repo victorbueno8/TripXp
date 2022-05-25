@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.entities.Ticket
 import br.edu.ifsp.scl.sdm.tripxp.use_cases.TripUseCases
+import br.edu.ifsp.scl.sdm.tripxp.use_cases.UserUseCases
 import br.edu.ifsp.scl.sdm.tripxp.util.DateFormat
 import br.edu.ifsp.scl.sdm.tripxp.util.NumberFormat
 import com.google.firebase.auth.FirebaseAuth
@@ -55,10 +56,17 @@ class PaymentConfirmActivity : AppCompatActivity() {
             db.collection("trips").document(tripID).collection("tickets")
                 .add(ticket)
                 .addOnSuccessListener{
-                    val finishPage = Intent(this, JoinTripConfirmActivity::class.java)
-                    finishPage.putExtra("eventID", tripID)
-                    finishPage.putExtra("ticketID", it.id)
-                    startActivity(finishPage)
+                    db.collection("users").document(ticket.userID).collection("tickets").document(it.id)
+                        .set(ticket)
+                        .addOnSuccessListener { snapshot ->
+                            val finishPage = Intent(this, JoinTripConfirmActivity::class.java)
+                            finishPage.putExtra("eventID", tripID)
+                            finishPage.putExtra("ticketID", it.id)
+                            startActivity(finishPage)
+                        }
+                        .addOnFailureListener { e ->
+                            Toast.makeText(this, "Erro: " + e.message, Toast.LENGTH_LONG).show()
+                        }
                 }
                 .addOnFailureListener { e ->
                     Toast.makeText(this, "Erro: " + e.message, Toast.LENGTH_LONG).show()

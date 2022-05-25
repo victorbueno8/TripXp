@@ -129,13 +129,6 @@ class EventActivity : AppCompatActivity() {
             startActivity(intent)
             true
         }
-        R.id.editTicketsMenuOption -> {
-            val intent = Intent(this, EditEventTicketsActivity::class.java)
-            intent.putExtra("eventID", eventID)
-            intent.putExtra("method","patch")
-            startActivity(intent)
-            true
-        }
         else -> {
             super.onOptionsItemSelected(item)
         }
