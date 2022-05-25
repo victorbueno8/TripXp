@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.UserProfileActivity">
+    tools:context=".presentation.profile.UserProfileActivity">
 
     <TextView
         android:id="@+id/userContactLb"
@@ -80,8 +80,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_avatar_placeholder"
-        tools:src="@tools:sample/avatars" />
+        app:srcCompat="@mipmap/ic_avatar_placeholder" />
 
     <TextView
         android:id="@+id/userPhoneNumberTv"
@@ -102,4 +101,14 @@
         android:text="placeholder@email.com"
         app:layout_constraintBottom_toBottomOf="@+id/emailLb3"
         app:layout_constraintStart_toEndOf="@+id/emailLb3" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/editProfileBt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="30dp"
+        app:srcCompat="@android:drawable/ic_menu_edit" />
 </androidx.constraintlayout.widget.ConstraintLayout>

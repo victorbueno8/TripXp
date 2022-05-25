@@ -8,12 +8,9 @@ import android.view.View
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
-import android.widget.Button
 import androidx.appcompat.widget.Toolbar
 import br.edu.ifsp.scl.sdm.tripxp.R
 import br.edu.ifsp.scl.sdm.tripxp.entities.Trip
-import br.edu.ifsp.scl.sdm.tripxp.presentation.LoginActivity
-import br.edu.ifsp.scl.sdm.tripxp.presentation.UserProfileActivity
 import br.edu.ifsp.scl.sdm.tripxp.presentation.join_trip.BuyTicketsActivity
 import br.edu.ifsp.scl.sdm.tripxp.presentation.mytrips.MyTripsActivity
 import br.edu.ifsp.scl.sdm.tripxp.presentation.organizer.events.ManageEventsActivity
@@ -43,20 +40,17 @@ class EventActivity : AppCompatActivity() {
         setContentView(R.layout.activity_event)
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
-        val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
-        val viewPager: ViewPager = findViewById(R.id.view_pager)
-        viewPager.adapter = sectionsPagerAdapter
-        val tabs: TabLayout = findViewById(R.id.tabs)
-        tabs.setupWithViewPager(viewPager)
 
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
         eventID = intent.getStringExtra("eventID") ?: ""
 
-    }
-
-    override fun onResume() {
-        super.onResume()
+        val sectionsPagerAdapter = SectionsPagerAdapter(this, eventID, supportFragmentManager)
+        val viewPager: ViewPager = findViewById(R.id.view_pager)
+        viewPager.adapter = sectionsPagerAdapter
+        val tabs: TabLayout = findViewById(R.id.tabs)
+        tabs.setupWithViewPager(viewPager)
+        viewPager.setCurrentItem(intent.getIntExtra("tab", 0))
 
         joinBt.visibility = View.GONE
         tabs.visibility = View.GONE
@@ -74,7 +68,7 @@ class EventActivity : AppCompatActivity() {
         val documentReference: DocumentReference = db.collection("trips").document(eventID)
         documentReference.get()
             .addOnSuccessListener { snapshot ->
-                val event = snapshot.toObject(Trip::class.java)
+                val event = snapshot.toObject(Trip::class.java)?.apply { id = snapshot.id }
                 if (event != null) {
                     this.toolbar.title = event.name
                     eventUnitPriceTv.text = "R$ ${NumberFormat().format(event.ticketPrice)}"
@@ -130,13 +124,6 @@ class EventActivity : AppCompatActivity() {
         }
         R.id.editTermsMenuOption -> {
             val intent = Intent(this, EditEventTermsActivity::class.java)
-            intent.putExtra("eventID", eventID)
-            intent.putExtra("method","patch")
-            startActivity(intent)
-            true
-        }
-        R.id.editTicketsMenuOption -> {
-            val intent = Intent(this, EditEventTicketsActivity::class.java)
             intent.putExtra("eventID", eventID)
             intent.putExtra("method","patch")
             startActivity(intent)

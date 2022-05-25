@@ -14,5 +14,6 @@ data class User (
         val cep: String = "",
         val phone: String = "",
         val phone2: String = "",
+        val profileImageUri: String = "",
         val userType: String = "user"
 )

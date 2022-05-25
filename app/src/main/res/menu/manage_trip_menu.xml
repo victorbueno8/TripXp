@@ -9,7 +9,4 @@
     <item
         android:id="@+id/editTermsMenuOption"
         android:title="Editar Termos" />
-    <item
-        android:id="@+id/editTicketsMenuOption"
-        android:title="Editar Passagens" />
 </menu>

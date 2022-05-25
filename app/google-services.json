@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "704960492615",
-    "project_id": "tripxp-2b5b2",
-    "storage_bucket": "tripxp-2b5b2.appspot.com"
+    "project_number": "1038555103072",
+    "project_id": "tripxp-d1da8",
+    "storage_bucket": "tripxp-d1da8.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:704960492615:android:3b83c3606690c00b56ed62",
+        "mobilesdk_app_id": "1:1038555103072:android:a4bcfa4b114f8d7018a805",
         "android_client_info": {
           "package_name": "br.edu.ifsp.scl.sdm.tripxp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "704960492615-f04va0adpiqs5fq5mi3qgvuggenrfvdn.apps.googleusercontent.com",
+          "client_id": "1038555103072-i36jhj40hlhj1npg5rps2fvuq5jivmio.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD7pACroThvSWcc_u2OHHO6mNBsr6Ch0rY"
+          "current_key": "AIzaSyDyNSNbYPAHhCe_o4ps_7vmcRYfwPxHAlc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "704960492615-f04va0adpiqs5fq5mi3qgvuggenrfvdn.apps.googleusercontent.com",
+              "client_id": "1038555103072-i36jhj40hlhj1npg5rps2fvuq5jivmio.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

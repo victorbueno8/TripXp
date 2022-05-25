@@ -2,13 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.edu.ifsp.scl.sdm.tripxp">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_txp_laucher_icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_txp_laucher_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TripXp">
         <activity
@@ -33,7 +34,7 @@
             android:name=".presentation.organizer.EditOrganizerProfileActivity"
             android:label="Minha Empresa de Excurção" />
         <activity
-            android:name=".presentation.EditProfileActivity"
+            android:name=".presentation.profile.EditProfileActivity"
             android:label="Meu Perfil" />
         <activity
             android:name=".presentation.mytrips.MyTripsActivity"
@@ -48,7 +49,7 @@
         <activity
             android:name=".presentation.join_trip.TermsActivity"
             android:label="Termos e Regras da Excursão" />
-        <activity android:name=".presentation.UserProfileActivity" />
+        <activity android:name=".presentation.profile.UserProfileActivity" />
         <activity android:name=".presentation.organizer.OrganizerProfileActivity" />
         <activity
             android:name=".presentation.event.EventActivity"
@@ -62,7 +63,8 @@
             android:label="Registrar-se" />
         <activity
             android:name=".presentation.LoginActivity"
-            android:label="Login" />
+            android:label="Login"
+            android:theme="@style/Theme.TripXp.NoActionBar"/>
         <activity android:name=".presentation.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

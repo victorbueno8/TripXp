@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import br.edu.ifsp.scl.sdm.tripxp.R
+import br.edu.ifsp.scl.sdm.tripxp.presentation.event.EventActivity
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
@@ -72,7 +73,10 @@ class EditEventImageActivity : AppCompatActivity() {
                         .addOnSuccessListener {
                             Snackbar.make(view, "A imagem da excursão foi salva!", Snackbar.LENGTH_LONG).show()
                             if (intent.getStringExtra("method")  == "patch") {
-                                finish()
+                                val eventPage = Intent(this, EventActivity::class.java)
+                                eventPage.putExtra("eventID", eventID)
+                                eventPage.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                                startActivity(eventPage)
                             } else {
                                 val termsPage = Intent(this, EditEventTermsActivity::class.java)
                                 termsPage.putExtra("eventID", eventID)
